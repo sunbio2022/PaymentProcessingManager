@@ -1,0 +1,468 @@
+<h5>Payment</h5>
+<br />
+<div class="section">
+  <form #paymentform="ngForm" (ngSubmit)="onSubmit(paymentform.value)">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="col-md-12">
+            <h6>General Information:</h6><br />
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Company Code</label>
+                </div>
+                <div class="col-8">
+                  <!--<input type="text" name="company_code" class="form-control" ngModel />-->
+                  <input type="text" list="staticAccounts" class="form-control" />
+                  <datalist id="staticAccounts">
+                    <option>11200000</option>
+                    <option>11300000</option>
+                    <option>11400010</option>
+                    <option>11240000</option>
+                    <option>12124020</option>
+                    <option>13400000</option>
+                    <option>15670000</option>
+                    <option>16780000</option>
+                    <option>17890000</option>
+                  </datalist>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Posting Date</label>
+                </div>
+                <div class="col-8">
+                  <input type="date" name="posting_date" da class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Journal Entry Date</label>
+                </div>
+                <div class="col-8">
+                  <input type="date" name="entry_date" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Value Date</label>
+                </div>
+                <div class="col-8">
+                  <input type="date" name="value_date" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Reference</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="reference" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Period</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="period" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Journal Entry Type</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="entry_type" class="form-control" ngModel />
+                  <!--<select id="entry" name="entry_type" class="form-control" [ngModel]>
+                    <option>Select</option>
+                  </select>-->
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Profit Center</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="profit_center" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-12">
+            <h6>Bank Data:</h6><br />
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>G/L Account</label>
+                </div>
+                <div class="col-8">
+                  <!--<input type="text" name="account" class="form-control" ngModel />-->
+                  <table>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <!--<input type="text" list="staticglAccounts" class="form-control" />
+                        <datalist id="staticglAccounts">
+                          <option>1000</option>
+                          <option>1100</option>
+                          <option>1110</option>
+                          <option>1200</option>
+                          <option>1220</option>
+                          <option>1340</option>
+                          <option>1567</option>
+                          <option>1678</option>
+                          <option>1789</option>
+                        </datalist>-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <input type="text" (keyup)="getglaccountFirstWay($event)" id="glaccountFirstWay" list="dynmicglaccount" class="form-control" />
+                        <datalist id="dynmicglaccount">
+                          <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
+                        </datalist>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>House Bank/Account ID</label>
+                </div>
+                <div class="col-4">
+                  <input type="text" name="house_bank" class="form-control" ngModel />
+                </div>
+                <div class="col-4">
+                  <input type="text" name="Account_ID" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Amount</label>
+                </div>
+                <div class="col-4">
+                  <input type="text" name="amount" class="form-control" ngModel />
+                </div>
+                <div class="col-4">
+                  <input type="text" name="amount" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Fees</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="fees" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Assignment</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="assignment" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Exchange Rate</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="exchange_rate" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Amount/CCode Currency</label>
+                </div>
+                <div class="col-8">
+                  <input type="text" name="ccode_currency" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-12">
+            <h6>Open Item Selection:</h6><br />
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Account Type/Account ID</label>
+                </div>
+                <div class="col-4">
+                  <!--<input type="text" name="account_type" class="form-control" ngModel/>-->
+                  <select id="entry" name="account_type" class="form-control" ngModel>
+                    <option>Select</option>
+                  </select>
+                </div>
+                <div class="col-4">
+                  <input type="text" list="staticAccounts" class="form-control" />
+                  <datalist id="staticAccounts">
+                    <option>1000</option>
+                    <option>1100</option>
+                    <option>1110</option>
+                    <option>1200</option>
+                    <option>1220</option>
+                    <option>1340</option>
+                    <option>1567</option>
+                    <option>1678</option>
+                    <option>1789</option>
+                  </datalist>
+                  <!--<input type="text" name="account_ID" class="form-control" ngModel />-->
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label>Payment Reference</label>
+                </div>
+                <div class="col-8">
+                  <textarea type="text" name="paymnt_reference" class="form-control" ngModel></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="float-right btn btn-primary">Propose Items</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<hr />
+<div class="tab">
+  <!--<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-proposeditems-tab" data-bs-toggle="pill" data-bs-target="#pills-proposeditems" type="button" role="tab" aria-controls="pills-proposeditems" aria-selected="true">Proposed Items</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-PosttoGlaccount-tab" data-bs-toggle="pill" data-bs-target="#pills-PosttoGlaccount" type="button" role="tab" aria-controls="pills-PosttoGlaccount" aria-selected="false">Post to G/L Account</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-postonaccount-tab" data-bs-toggle="pill" data-bs-target="#pills-postonaccount" type="button" role="tab" aria-controls="pills-postonaccount" aria-selected="false">Post on Account</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-attachment-tab" data-bs-toggle="pill" data-bs-target="#pills-attachment" type="button" role="tab" aria-controls="pills-attachment" aria-selected="false">Attachment</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-notes-tab" data-bs-toggle="pill" data-bs-target="#pills-notes" type="button" role="tab" aria-controls="pills-notes" aria-selected="false">Notes</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-proposeditems" role="tabpanel" aria-labelledby="pills-proposeditems-tab">...</div>
+    <div class="tab-pane fade" id="pills-PosttoGlaccount" role="tabpanel" aria-labelledby="pills-PosttoGlaccount-tab">...</div>
+    <div class="tab-pane fade" id="pills-postonaccount" role="tabpanel" aria-labelledby="pills-postonaccount-tab">...</div>
+    <div class="tab-pane fade" id="pills-attachment" role="tabpanel" aria-labelledby="pills-attachment-tab">...</div>
+    <div class="tab-pane fade" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">...</div>
+  </div>-->
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-proposeditems-tab" data-bs-toggle="tab" data-bs-target="#nav-proposeditems" type="button" role="tab" aria-controls="nav-proposeditems">Proposed Items</button>
+      <button class="nav-link" id="nav-PosttoGlaccount-tab" data-bs-toggle="tab" data-bs-target="#nav-PosttoGlaccount" type="button" role="tab" aria-controls="nav-PosttoGlaccount">Post to G/L Account</button>
+      <button class="nav-link" id="nav-postonaccount-tab" data-bs-toggle="tab" data-bs-target="#nav-postonaccount" type="button" role="tab" aria-controls="nav-postonaccount">Post on Account</button>
+      <button class="nav-link" id="nav-attachment-tab" data-bs-toggle="tab" data-bs-target="#nav-attachment" type="button" role="tab" aria-controls="nav-attachment">Attachment</button>
+      <button class="nav-link" id="nav-notes-tab" data-bs-toggle="tab" data-bs-target="#nav-notes" type="button" role="tab" aria-controls="nav-notes">Notes</button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-proposeditems" role="tabpanel" aria-labelledby="nav-proposeditems-tab">
+      <br />
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-2">
+                <h5>Open Items</h5>
+              </div>
+              <div class="col-2">
+                <select id="standard" name="standard" class="form-control" ngModel>
+                  <option>select</option>
+                </select>
+              </div>
+              <div class="col-2">
+                <input type="search" name="search" class="form-control" placeholder="Search" ngModel>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <h5>Items To be cleared</h5>
+              </div>
+              <div class="col">
+                <select id="standard" name="standard" class="form-control" placeholder="Standard" ngModel>
+                  <option>select</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table table-reponsive table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Company Code</th>
+                <th scope="col">Account</th>
+                <th scope="col">Journal Entry Date</th>
+                <th scope="col">Journal Entry Type</th>
+                <th scope="col">Item Text</th>
+                <th scope="col">Next Due Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Assignment</th>
+                <th scope="col">Clear</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-reponsive table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Remove</th>
+                <th scope="col">Journal Entry Date</th>
+                <th scope="col">Open</th>
+                <th scope="col">Allocated</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Invoice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-PosttoGlaccount" role="tabpanel" aria-labelledby="nav-PosttoGlaccount-tab"></div>
+    <div class="tab-pane fade" id="nav-postonaccount" role="tabpanel" aria-labelledby="nav-postonaccount-tab">........</div>
+    <div class="tab-pane fade" id="nav-attachment" role="tabpanel" aria-labelledby="nav-attachment-tab">.........</div>
+    <div class="tab-pane fade" id="nav-notes" role="tabpanel" aria-labelledby="nav-notes-tab">..........</div>
+  </div>
+</div>
+<div class="button">
+  <button type="button" class="float-right btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showModal=true">Post</button>
+  <button type="button" class="float-right btn btn-primary">Simulate</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{'show':showModal}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="showModal=false"></button>
+      </div>
+      <div class="modal-body">
+        Journal entry sucessfully posted
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="showModal=false">Display</button>
+        <button type="button" class="btn btn-primary" (click)="showModal=false">Post Next Payment</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #3E2723;
+}
+
+  a:hover {
+    color: #3E2723;
+    text-decoration: none;
+  }
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.mb-5 {
+  padding: 250px 15px;
+}

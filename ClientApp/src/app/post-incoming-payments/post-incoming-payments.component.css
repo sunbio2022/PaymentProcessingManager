@@ -1,0 +1,10 @@
+.vl {
+  border-left: 6px groove;
+  height: 300px;
+  position: absolute;
+  left: 67%;
+}
+
+.modal.show {
+  display: block;
+}
