@@ -128,15 +128,10 @@
                     <tr>
                       <td></td>
                       <td>
-                        <!--<input type="text" (keyup)="getglaccount($event)" id="glaccount" list="dynmicglaccount" class="form-control"/>
+                        <input type="text" (keyup)="getglaccountFirstWay($event)" id="glaccountFirstWay" list="dynmicglaccount" class="form-control" />
                         <datalist id="dynmicglaccount">
                           <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
-                        </datalist>-->
-                        <input type="text" id="template" (keyup)="getglaccount($event)" class="form-control" />
-                        <!--<ul class="list-group" id="ulautocomplete">
-                              <li *ngFor="let item of autoCompletArr" class="list-group-item"> <a class="card-link  handcursor">{{item.blog_header}}</a></li>
-                            </ul>-->
-                        <!--<input id="template" class="form-control" type="text"/>-->
+                        </datalist>
                       </td>
                     </tr>
                   </table>

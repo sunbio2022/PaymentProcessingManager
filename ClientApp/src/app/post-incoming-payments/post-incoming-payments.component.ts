@@ -61,9 +61,7 @@ export class PostIncomingPaymentsComponent implements OnInit {
     //  })
     //  console.warn(data);
   }
-  getglaccount($event) {
-    let glaccount = (<HTMLInputElement>document.getElementById('glaccount')).value;
-    this.data = [];
+  $getglaccountFirstWay($event) {
 
   }
 }
