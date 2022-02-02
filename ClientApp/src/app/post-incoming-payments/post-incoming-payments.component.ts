@@ -20,7 +20,7 @@ export class PostIncomingPaymentsComponent implements OnInit {
     //  })
     //  console.warn(data);
   }
-  $getglaccountFirstWay($event) {
+  getglaccountFirstWay($event) {
 
   }
 }

@@ -141,10 +141,11 @@
                     <tr>
                       <td></td>
                       <td>
-                        <input type="text" (keyup)="getglaccountFirstWay($event)" id="glaccountFirstWay" list="dynmicglaccount" class="form-control" />
-                        <datalist id="dynmicglaccount">
-                          <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
-                        </datalist>
+                        <!--<input type="text" (keyup)="getglaccount($event)" id="glaccount" list="dynmicglaccount" class="form-control"/>
+                          <datalist id="dynmicglaccount">
+                            <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
+                          </datalist>-->
+                        <input type="text" id="glaccount" (keyup)="getglaccount($event)" />
                       </td>
                     </tr>
                   </table>
