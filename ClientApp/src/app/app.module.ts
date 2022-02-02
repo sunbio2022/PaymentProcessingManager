@@ -40,6 +40,7 @@ import { LoginComponent } from './login/login.component';
       { path: 'post-incoming-payments', component: PostIncomingPaymentsComponent },
       { path: 'bank-account', component: BankAccountComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
     ])
   ],
   providers: [],
