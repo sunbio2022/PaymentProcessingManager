@@ -22,6 +22,8 @@ namespace PaymentProcessingManager.Controllers
             _loginRepository = loginRepository;
         }
 
+        [HttpGet]
+        [Route("Authentication")]
         public async Task<IActionResult> Authentication([FromBody] Credentials credentials)
         {
             try
@@ -30,7 +32,7 @@ namespace PaymentProcessingManager.Controllers
                 if (status)
                 {
                     string role = await _loginRepository.GetRoleByName(credentials.UserName);
-                    return Ok(credentials);
+                    return Ok(role);
                 }
                 else
                 {

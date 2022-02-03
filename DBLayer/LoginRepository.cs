@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
 using PaymentProcessingManager.DBContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace PaymentProcessingManager.DBLayer
 {
@@ -21,7 +22,6 @@ namespace PaymentProcessingManager.DBLayer
             {
                 bool exists = _dbcontext.Users.Where(u => u.UserName == credentials.UserName && u.Password == credentials.Password).AsQueryable().Any();
                 return exists;
-
             }
             catch (Exception ex)
             {
@@ -29,9 +29,17 @@ namespace PaymentProcessingManager.DBLayer
             }
         }
 
-        public Task<string> GetRoleByName(string roleName)
+        public async Task<string> GetRoleByName(string userName)
         {
-            throw new NotImplementedException();
+            int roleID = _dbcontext.Users.Where(u => u.UserName == userName).Select(u => u.RoleID).FirstOrDefault();
+            if (roleID > 0)
+            {
+                return await _dbcontext.Roles.Where(r => r.Id == roleID).Select(r => r.Name).AsQueryable().FirstOrDefaultAsync();
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
