@@ -15,6 +15,7 @@ import { BankAccountComponent } from './bank-account/bank-account.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
+import { AcquisitionComponent } from './acquisition/acquisition.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UsersComponent } from './users/users.component';
     BankAccountComponent,
     RegisterComponent,
     LoginComponent,
-    UsersComponent
+    UsersComponent,
+    AcquisitionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,6 +46,7 @@ import { UsersComponent } from './users/users.component';
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'acquisition', component: AcquisitionComponent },
     ])
   ],
   providers: [],
