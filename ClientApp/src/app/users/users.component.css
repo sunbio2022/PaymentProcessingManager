@@ -44,7 +44,7 @@ table {
 td{
     vertical-align:top;
 }
-td:nth-child(5){
+td:nth-child(4){
     min-width:500px;
 }
 
@@ -55,7 +55,7 @@ td, th {
 
 th {
   background-color: rgb(235,235,235);
-  width:400px;
+  width:450px;
 }
 
 td {
