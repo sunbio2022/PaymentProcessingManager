@@ -11,7 +11,7 @@ namespace PaymentProcessingManager.Model
         [Key]
         [Required]
         public int AcquisitionID { get; set; }
-        public int TransactionID { get; set; }
+        public string TransactionID { get; set; }
         public string PaymentMethod { get; set; }
         public decimal Amount { get; set; }
         public decimal Currency { get; set; }
