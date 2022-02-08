@@ -22,5 +22,8 @@ namespace PaymentProcessingManager.Model
         public int? AuthorizeStatusID { get; set; }
         public virtual AuthorizeStatus AuthorizeStatus { get; set; }
         public int? PostData { get; set; }
+        public string BURS { get; set; }
+        public string BURSNotes { get; set; }
+        
     }
 }
