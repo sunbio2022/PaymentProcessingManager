@@ -67,7 +67,30 @@ namespace PaymentProcessingManager.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentID");
+
+                    b.HasIndex("RoleID");
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("PaymentProcessingManager.Model.User", b =>
+                {
+                    b.HasOne("PaymentProcessingManager.Model.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PaymentProcessingManager.Model.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }
