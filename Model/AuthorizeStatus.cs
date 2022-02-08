@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace PaymentProcessingManager.Model
 {
-    public class Department
+    public class AuthorizeStatus
     {
         [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
+        [Required]
+        public int AuthorizeStatusID { get; set; }
+        public string AuthorizeStatusName { get; set; }
         public bool IsActive { get; set; }
     }
 }

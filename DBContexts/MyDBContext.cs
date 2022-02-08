@@ -9,6 +9,11 @@ namespace PaymentProcessingManager.DBContexts
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Acquisition> Acquisition { get; set; }
+        public DbSet<AuthorizeStatus> AuthorizeStatus { get; set; }
+        public DbSet<Transaction> Transaction { get; set; }
+        public DbSet<PaymentGateway> PaymentGateway { get; set; }
+        public DbSet<ServiceRegistry> ServiceRegistry { get; set; }
 
         //public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
         //{

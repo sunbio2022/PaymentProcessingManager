@@ -8,8 +8,8 @@ using PaymentProcessingManager.DBContexts;
 namespace PaymentProcessingManager.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20220202114226_UserRoleDepartment")]
-    partial class UserRoleDepartment
+    [Migration("20220208050826_UserTable")]
+    partial class UserTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,7 +69,30 @@ namespace PaymentProcessingManager.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentID");
+
+                    b.HasIndex("RoleID");
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("PaymentProcessingManager.Model.User", b =>
+                {
+                    b.HasOne("PaymentProcessingManager.Model.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PaymentProcessingManager.Model.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }
