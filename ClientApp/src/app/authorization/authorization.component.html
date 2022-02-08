@@ -1,0 +1,42 @@
+<div class="col-lg-12 text-center">
+  <h1>
+    Authorisation
+  </h1>
+  <br />
+
+  <table class="table table-responsive table-hover table-striped" aria-labelledby="tableLabel">
+    <thead>
+      <tr class="text-center">
+        <th></th>
+        <th>TXN ID</th>
+        <th>Payment Method</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>TXN Date</th>
+        <th>Description</th>
+        <th>Authorize</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let authorize of authorizes">
+        <td><input type="checkbox" /></td>
+        <td>{{ authorize.TxnID }}</td>
+        <td>{{ authorize.PaymentMethod }}</td>
+        <td>{{ authorize.amount }}</td>
+        <td>{{ authorize.currency }}</td>
+        <td>{{ authorize.txnDate }}</td>
+        <td>{{ authorize.Description }}</td>
+        <td>
+          <select id="dept" name="department" class="form-control" ngModel>
+            <option>Select</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <button type="button" class="btn btn-primary">Post</button>
+    <button type="button" class="float-right btn btn-primary">Cancel</button>
+  </div>
+</div>
+
