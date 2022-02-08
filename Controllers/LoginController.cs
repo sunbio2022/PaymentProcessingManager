@@ -44,5 +44,12 @@ namespace PaymentProcessingManager.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
+        [HttpGet]
+        [Route("GetUsers")]
+        public async Task<IEnumerable<User>> GetUsers()
+        {
+            return await _loginRepository.GetUsers();
+        }
     }
 }

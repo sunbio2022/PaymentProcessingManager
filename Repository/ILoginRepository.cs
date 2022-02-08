@@ -10,6 +10,6 @@ namespace PaymentProcessingManager.Repository
     {
         public bool Authenticate(Credentials credentials);
         public Task<string> GetRoleByName(string roleName);
-        //public Task<Users> GetUser(string UserName);
+        public Task<IEnumerable<User>> GetUsers();
     }
 }
