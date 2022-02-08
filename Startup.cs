@@ -35,6 +35,7 @@ namespace PaymentProcessingManager
             services.AddDbContext<MyDBContext>(options => options.UseMySQL(mySqlConnectionStr));
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAcquisitionRepository, AcquisitionRepository>();
 
         }
 
