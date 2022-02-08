@@ -19,11 +19,46 @@ namespace PaymentProcessingManager.Controllers
         {
             userrep = userRepository;
         }
+
         [HttpGet]
         [Route("getUsersList")]
         public async Task<IEnumerable<User>> getUsersList()
         {
+            try { 
             return await userrep.getUsersList();
+            }
+            catch(Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        //[HttpGet]
+        //[Route("GetRoles")]
+        //public async Task<IActionResult> GetRoles(int roleId)
+        //{
+        //    try
+        //    {
+        //        string role = await userrep.GetRoles(roleId);
+        //        return Ok();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw (ex);
+        //    }
+        //}
+        [HttpGet]
+        [Route("GetAllUserRoles")]
+        public async Task<IEnumerable<Role>> GetAllUserRoles()
+        {
+            try
+            {
+                return await userrep.GetAllUserRoles();
+            }
+            catch(Exception ex)
+            {
+                throw (ex);
+            }
         }
     }
 }
