@@ -16,6 +16,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { AcquisitionComponent } from './acquisition/acquisition.component';
+import { RoutingComponent } from './routing/routing.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AcquisitionComponent } from './acquisition/acquisition.component';
     RegisterComponent,
     LoginComponent,
     UsersComponent,
-    AcquisitionComponent
+    AcquisitionComponent,
+    RoutingComponent,
+    AuthorizationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,6 +51,8 @@ import { AcquisitionComponent } from './acquisition/acquisition.component';
       { path: 'login', component: LoginComponent },
       { path: 'users', component: UsersComponent },
       { path: 'acquisition', component: AcquisitionComponent },
+      { path: 'routing', component: RoutingComponent },
+      { path: 'authorization', component: AuthorizationComponent },
     ])
   ],
   providers: [],

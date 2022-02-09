@@ -9,16 +9,16 @@
       <tr class="text-center">
         <th>User Name</th>
         <th>Email</th>
-        <th>Role ID</th>
-        <th>Department ID</th>
+        <th>Role Name</th>
+        <th>Department Name</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of uerslist">
-        <td>{{user.UserName}}</td>
-        <td>{{user.Email}}</td>
-        <td>{{user.RoleID}}</td>
-        <td>{{user.DepartmentID}}</td>
+      <tr *ngFor="let user of users">
+        <td>{{ user.UserName }}</td>
+        <td>{{ user.Email }}</td>
+        <td>{{ user.RoleName }}</td>
+        <td>{{ user.DepartmentName }}</td>
       </tr>
     </tbody>
   </table>

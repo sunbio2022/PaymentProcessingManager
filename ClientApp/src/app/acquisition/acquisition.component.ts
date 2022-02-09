@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acquisition.component.css']
 })
 export class AcquisitionComponent implements OnInit {
+  public acquisitions: Acquisition[];
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
+
+interface Acquisition {
+  TxnID:number;
+  PaymentMethod: string;
+  Amount: number
+  Currency: string;
+  TxnDate: Date;
+  Decription: string;
+}
+
