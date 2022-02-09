@@ -2,6 +2,7 @@
 using PaymentProcessingManager.DBContexts;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
+using PaymentProcessingManager.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +18,16 @@ namespace PaymentProcessingManager.DBLayer
         {
             dbContext = context;
         }
-        public async Task<IEnumerable<User>> getUsersList()
+        public async Task<IEnumerable<UserList>> getUsersList()
         {
-            User user = new User();
-            return await dbContext.Users.AsQueryable().ToListAsync();
-            //return await dbContext.Users.Select(u => new { UserName = u.UserName, Email = u.Email, DepartmentName = u.Department.Name, RoleName = u.Role.Name }).AsQueryable().ToListAsync();
-            //var role = dbContext.Roles.Where(r => r.Id == user.RoleID).Select(r => r.Name).AsQueryable().ToListAsync();
-            //return await dbContext.Users.AsQueryable().ToListAsync();
-            //IEnumerable<User> x = new List<User>();
-            //var user = await dbContext.Users.Select(u => new { UserName = u.UserName, Email = u.Email, DepartmentName = u.Department.Name, RoleName = u.Role.Name }).AsQueryable().FirstOrDefaultAsync();
-            //return user;
+            try
+            {
+                return await dbContext.Users.Select(u => new UserList() { UserName = u.UserName, Email = u.Email, RoleName = u.Role.Name, DepartmentName = u.Department.Name }).AsQueryable().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
         }
 
         //public async Task<string> GetRoles(int roleId)
@@ -40,6 +41,7 @@ namespace PaymentProcessingManager.DBLayer
         //        throw (ex);
         //    }
         //}
+
         public async Task<IEnumerable<Role>> GetAllUserRoles()
         {
             try
@@ -50,6 +52,11 @@ namespace PaymentProcessingManager.DBLayer
             {
                 throw (ex);
             }
+        }
+
+        Task<IEnumerable<User>> IUserRepository.getUsersList()
+        {
+            throw new NotImplementedException();
         }
     }
 }

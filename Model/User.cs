@@ -17,7 +17,7 @@ namespace PaymentProcessingManager.Model
         public virtual Role Role { get; set; }
         public int DepartmentID { get; set; }
         public virtual Department Department { get; set; }
-
+        public string RoleName { get; internal set; }
     }
     public class Credentials
     {
