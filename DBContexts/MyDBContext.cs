@@ -6,8 +6,9 @@ namespace PaymentProcessingManager.DBContexts
 {
     public class MyDBContext : DbContext
     {
-        public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         //public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
         //{

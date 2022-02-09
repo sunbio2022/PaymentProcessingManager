@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PaymentProcessingManager.DBContexts;
+using PaymentProcessingManager.DBLayer;
+using PaymentProcessingManager.Repository;
 
 namespace PaymentProcessingManager
 {
@@ -31,6 +33,8 @@ namespace PaymentProcessingManager
             services.AddControllers();
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<MyDBContext>(options => options.UseMySQL(mySqlConnectionStr));
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

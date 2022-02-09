@@ -123,29 +123,15 @@
                     </tr>
                     <tr>
                       <td></td>
-                      <td>
-                        <!--<input type="text" list="staticglAccounts" class="form-control" />
-                        <datalist id="staticglAccounts">
-                          <option>1000</option>
-                          <option>1100</option>
-                          <option>1110</option>
-                          <option>1200</option>
-                          <option>1220</option>
-                          <option>1340</option>
-                          <option>1567</option>
-                          <option>1678</option>
-                          <option>1789</option>
-                        </datalist>-->
-                      </td>
+                      <td></td>
                     </tr>
                     <tr>
                       <td></td>
                       <td>
-                        <!--<input type="text" (keyup)="getglaccount($event)" id="glaccount" list="dynmicglaccount" class="form-control"/>
-                          <datalist id="dynmicglaccount">
-                            <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
-                          </datalist>-->
-                        <input type="text" id="glaccount" (keyup)="getglaccount($event)" />
+                        <input type="text" (keyup)="getglaccountFirstWay($event)" id="glaccountFirstWay" list="dynmicglaccount" class="form-control" />
+                        <datalist id="dynmicglaccount">
+                          <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
+                        </datalist>
                       </td>
                     </tr>
                   </table>

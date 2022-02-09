@@ -12,7 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostIncomingPaymentsComponent } from './post-incoming-payments/post-incoming-payments.component';
 import { BankAccountComponent } from './bank-account/bank-account.component';
-import { DepartmentComponent } from './department/department.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,7 @@ import { DepartmentComponent } from './department/department.component';
     FetchDataComponent,
     DashboardComponent,
     PostIncomingPaymentsComponent,
-    BankAccountComponent,
-    DepartmentComponent
+    BankAccountComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,7 +37,6 @@ import { DepartmentComponent } from './department/department.component';
       { path: 'dashboard', component: DashboardComponent },
       { path: 'post-incoming-payments', component: PostIncomingPaymentsComponent },
       { path: 'bank-account', component: BankAccountComponent },
-      { path: 'department', component: DepartmentComponent },
     ])
   ],
   providers: [],
