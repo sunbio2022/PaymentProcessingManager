@@ -1,71 +1,61 @@
 <h5>Department</h5>
-<pre></pre>
-<div class="section">
-  <form #Departmentform="ngForm" (ngSubmit)="onSubmit(Departmentform.value)">
-    <div class="container-fluid">
-      <div class="form-group">
-        <div class="row">
-          <div class="col-3">
-            <!--<div class="col-8">-->
-            <label>Department Name</label>
-            <!--</div>-->
-            <div class="col-9">
-              <input type="text" name="Department" class="form-control" ngModel />
+<br/>
+  <div class="col-12 col-lg-9 col-xl-7">
+    <div class="section">
+      <form #Departmentform="ngForm" (ngSubmit)="onSubmit(Departmentform.value)">
+        <div class="container-fluid">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-2">
+                <label>Department Name</label>
+              </div>
+              <div class="col-4">
+                <input type="text" name="Department head" class="form-control">
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-3">
-            <div class="col-8">
-            <label>Department head</label>
-            </div>
-            <div class="col-9">
-              <select class="form-control">
-                <option></option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-            </div>
-          </div>
-          <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="row">-->
-            <div class="col-3">
-              <!--<div class="col-8">-->
-              <label>Department clerk</label>
-              <!--</div>-->
-              <div class="col-9">
-                <select class="form-control">
-                  <option></option>
+          <br/>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-2">
+                <label>Department head</label>
+              </div>
+              <div class="col-4">
+                <input type="text" list="staticAccounts" class="form-control" />
+                <datalist id="staticAccounts">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
-                </select>
+                  <option>4</option>
+                </datalist>
               </div>
             </div>
-          <!--</div>-->
+          </div>
+          <br/>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-2">
+                <label>Department Clerk</label>
+              </div>
+              <div class="col-4">
+                <input type="text" list="staticAccounts" class="form-control" />
+                <datalist id="staticAccounts">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </datalist>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary ml-3">Cancel</button>
+          </div>
         </div>
-      </div>
-      <pre></pre>
-      <pre></pre>
-      <pre></pre>
-      <pre></pre>
-      <pre></pre>
-
-        <div class="col-3">
-          <button type="button" class="btn btn-success btn-sm  margin-left">
-             Save
-          </button>
-          <button type="button" class="btn btn-danger  btn-sm  margin-left">
-            Cancel
-          </button>
-        </div>
-      <!--</div>-->
+      </form>
     </div>
-</form>
-</div>
-    
+  </div>
+      
+      
+   

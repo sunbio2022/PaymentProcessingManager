@@ -34,7 +34,9 @@ namespace PaymentProcessingManager
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<MyDBContext>(options => options.UseMySQL(mySqlConnectionStr));
             services.AddScoped<ILoginRepository, LoginRepository>();
-            
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IPaymentGatewayRepository,PaymentGatewayRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
