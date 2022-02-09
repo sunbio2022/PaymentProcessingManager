@@ -21,10 +21,10 @@ export class UsersComponent implements OnInit {
   }
 }
 interface User {
-  id: number;
-  UserName: string;
-  Email: string;
+  /*id: number;*/
+  userName: string;
+  email: string;
   password:string;
-  RoleName: string;
-  DepartmentName: string;
+  roleID: string;
+  departmentID: string;
 }
