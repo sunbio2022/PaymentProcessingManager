@@ -474,20 +474,54 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let authorize of authorizes">
+      <!--<tr *ngFor="let authorize of authorizes">
+    <td><input type="checkbox" /></td>
+    <td>{{ authorize.TxnID }}</td>
+    <td>{{ authorize.PaymentMethod }}</td>
+    <td>{{ authorize.amount }}</td>
+    <td>{{ authorize.currency }}</td>
+    <td>{{ authorize.txnDate }}</td>
+    <td>{{ authorize.Description }}</td>
+    <td>
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem></button>
+        <button ngbDropdownItem></button>
+        <button ngbDropdownItem></button></div>
+    </td>
+  </tr>-->
+      <tr>
         <td><input type="checkbox" /></td>
-        <td>{{ authorize.TxnID }}</td>
-        <td>{{ authorize.PaymentMethod }}</td>
-        <td>{{ authorize.amount }}</td>
-        <td>{{ authorize.currency }}</td>
-        <td>{{ authorize.txnDate }}</td>
-        <td>{{ authorize.Description }}</td>
+        <td>Txn10001</td>
+        <td>Debit Card</td>
+        <td>1000.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>House Tax</td>
         <td>
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select</button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem></button>
-            <button ngbDropdownItem></button>
-            <button ngbDropdownItem></button></div>
+          <select id="authorize" name="authorize" class="form-control" >
+            Select
+            <option>Approve</option>
+            <option>Hold</option>
+            <option>Decline</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>Txn10005</td>
+        <td>Debit Card</td>
+        <td>750.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>Propery Tax</td>
+        <td>
+          <select id="authorize" name="authorize" class="form-control">
+            Select
+            <option>Approve</option>
+            <option>Hold</option>
+            <option>Decline</option>
+          </select>
         </td>
       </tr>
     </tbody>
