@@ -8,7 +8,8 @@
     <thead>
       <tr class="text-center">
         <th></th>
-        <th>TXN ID</th>
+        <th>Sl No</th>
+        <th>Transaction ID</th>
         <th>Payment Method</th>
         <th>Amount</th>
         <th>Currency</th>
@@ -18,22 +19,26 @@
       </tr>
     </thead>
     <tbody>
-      <!--<tr *ngFor="let authorize of authorizes">
-    <td><input type="checkbox" /></td>
-    <td>{{ authorize.TxnID }}</td>
-    <td>{{ authorize.PaymentMethod }}</td>
-    <td>{{ authorize.amount }}</td>
-    <td>{{ authorize.currency }}</td>
-    <td>{{ authorize.txnDate }}</td>
-    <td>{{ authorize.Description }}</td>
-    <td>
-      <select id="dept" name="department" class="form-control" ngModel>
-        <option>Select</option>
-      </select>
-    </td>
-  </tr>-->
+      <tr *ngFor="let authorize of authorizes; let i = index">
+        <td><input type="checkbox" /></td>
+        <td>{{ i+1 }}</td>
+        <td>{{ authorize.transactionID }}</td>
+        <td>{{ authorize.paymentMethod }}</td>
+        <td>{{ authorize.amount }}</td>
+        <td>{{ authorize.currency }}</td>
+        <td>{{ authorize.transactionDate }}</td>
+        <td>{{ authorize.description }}</td>
+        <td>
+          <select id="dept" name="department" class="form-control">
+            Select
+            <option>Approve</option>
+            <option>Hold</option>
+            <option>Decline</option>
+          </select>
+        </td>
+      </tr>
 
-      <tr>
+      <!--<tr>
         <td><input type="checkbox" /></td>
         <td>Txn10001</td>
         <td>Debit Card</td>
@@ -66,7 +71,7 @@
             <option>Decline</option>
           </select>
         </td>
-      </tr>
+      </tr>-->
     </tbody>
   </table>
   <div class="row">

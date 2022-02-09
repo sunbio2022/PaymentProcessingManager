@@ -19,7 +19,14 @@ namespace PaymentProcessingManager.DBLayer
 
         public async Task<IEnumerable<Acquisition>> GetAcquisitions()
         {
-            return await dbcontext.Acquisition.AsQueryable().ToListAsync();
+            try
+            {
+                return await dbcontext.Acquisition.AsQueryable().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
         }
     }
 }

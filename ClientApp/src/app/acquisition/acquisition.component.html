@@ -16,8 +16,8 @@
       </tr>
     </thead>
     <tbody>     
-      <tr *ngFor="let acquisition of acquisitions let i = index">
-        <td>{{ acquisition.acquisitionID }}</td>
+      <tr *ngFor="let acquisition of acquisitions; let i = index">
+        <td>{{ i+1 }}</td>
         <td>{{ acquisition.transactionID }}</td>
         <td>{{ acquisition.paymentMethod }}</td>
         <td>{{ acquisition.amount }}</td>
@@ -29,7 +29,9 @@
   </table>
 
   <div class="col-md-12">
-    <div class="btn-primary"
+    <div class="btn-primary">
+
+    </div>
   </div>
 </div>
 
