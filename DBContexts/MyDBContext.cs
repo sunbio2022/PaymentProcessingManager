@@ -15,6 +15,8 @@ namespace PaymentProcessingManager.DBContexts
         public DbSet<PaymentGateway> PaymentGateway { get; set; }
         public DbSet<ServiceRegistry> ServiceRegistry { get; set; }
 
+        public DbSet<PaymentGateway> PaymentGateways{ get; set; }
+
         //public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
         //{
         //}
