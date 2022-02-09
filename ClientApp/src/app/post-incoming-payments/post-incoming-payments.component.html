@@ -1,4 +1,4 @@
-<h5>Payment</h5>
+<!--<h5>Payment</h5>
 <br />
 <div class="section">
   <form #paymentform="ngForm" (ngSubmit)="onSubmit(paymentform.value)">
@@ -12,229 +12,229 @@
                 <div class="col-4">
                   <label>Company Code</label>
                 </div>
-                <div class="col-8">
-                  <!--<input type="text" name="company_code" class="form-control" ngModel />-->
-                  <input type="text" list="staticAccounts" class="form-control" />
-                  <datalist id="staticAccounts">
-                    <option>11200000</option>
-                    <option>11300000</option>
-                    <option>11400010</option>
-                    <option>11240000</option>
-                    <option>12124020</option>
-                    <option>13400000</option>
-                    <option>15670000</option>
-                    <option>16780000</option>
-                    <option>17890000</option>
-                  </datalist>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Posting Date</label>
-                </div>
-                <div class="col-8">
-                  <input type="date" name="posting_date" da class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Journal Entry Date</label>
-                </div>
-                <div class="col-8">
-                  <input type="date" name="entry_date" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Value Date</label>
-                </div>
-                <div class="col-8">
-                  <input type="date" name="value_date" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Reference</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="reference" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Period</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="period" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Journal Entry Type</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="entry_type" class="form-control" ngModel />
-                  <!--<select id="entry" name="entry_type" class="form-control" [ngModel]>
-                    <option>Select</option>
-                  </select>-->
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Profit Center</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="profit_center" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-          </div>
+                <div class="col-8">-->
+<!--<input type="text" name="company_code" class="form-control" ngModel />-->
+<!--<input type="text" list="staticAccounts" class="form-control" />
+      <datalist id="staticAccounts">
+        <option>11200000</option>
+        <option>11300000</option>
+        <option>11400010</option>
+        <option>11240000</option>
+        <option>12124020</option>
+        <option>13400000</option>
+        <option>15670000</option>
+        <option>16780000</option>
+        <option>17890000</option>
+      </datalist>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <label>Posting Date</label>
+    </div>
+    <div class="col-8">
+      <input type="date" name="posting_date" da class="form-control" ngModel />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <label>Journal Entry Date</label>
+    </div>
+    <div class="col-8">
+      <input type="date" name="entry_date" class="form-control" ngModel />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <label>Value Date</label>
+    </div>
+    <div class="col-8">
+      <input type="date" name="value_date" class="form-control" ngModel />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <label>Reference</label>
+    </div>
+    <div class="col-8">
+      <input type="text" name="reference" class="form-control" ngModel />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <label>Period</label>
+    </div>
+    <div class="col-8">
+      <input type="text" name="period" class="form-control" ngModel />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <label>Journal Entry Type</label>
+    </div>
+    <div class="col-8">
+      <input type="text" name="entry_type" class="form-control" ngModel />-->
+<!--<select id="entry" name="entry_type" class="form-control" [ngModel]>
+  <option>Select</option>
+</select>-->
+<!--</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>Profit Center</label>
         </div>
-        <div class="col-md-4">
-          <div class="col-md-12">
-            <h6>Bank Data:</h6><br />
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>G/L Account</label>
-                </div>
-                <div class="col-8">
-                  <!--<input type="text" name="account" class="form-control" ngModel />-->
-                  <table>
-                    <tr>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>
-                        <input type="text" (keyup)="getglaccountFirstWay($event)" id="glaccountFirstWay" list="dynmicglaccount" class="form-control" />
-                        <datalist id="dynmicglaccount">
-                          <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
-                        </datalist>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>House Bank/Account ID</label>
-                </div>
-                <div class="col-4">
-                  <input type="text" name="house_bank" class="form-control" ngModel />
-                </div>
-                <div class="col-4">
-                  <input type="text" name="Account_ID" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Amount</label>
-                </div>
-                <div class="col-4">
-                  <input type="text" name="amount" class="form-control" ngModel />
-                </div>
-                <div class="col-4">
-                  <input type="text" name="amount" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Fees</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="fees" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Assignment</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="assignment" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Exchange Rate</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="exchange_rate" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Amount/CCode Currency</label>
-                </div>
-                <div class="col-8">
-                  <input type="text" name="ccode_currency" class="form-control" ngModel />
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col-8">
+          <input type="text" name="profit_center" class="form-control" ngModel />
         </div>
-        <div class="col-md-4">
-          <div class="col-md-12">
-            <h6>Open Item Selection:</h6><br />
-            <div class="form-group">
-              <div class="row">
-                <div class="col-4">
-                  <label>Account Type/Account ID</label>
-                </div>
-                <div class="col-4">
-                  <!--<input type="text" name="account_type" class="form-control" ngModel/>-->
-                  <select id="entry" name="account_type" class="form-control" ngModel>
-                    <option>Select</option>
-                  </select>
-                </div>
-                <div class="col-4">
-                  <input type="text" list="staticAccounts" class="form-control" />
-                  <datalist id="staticAccounts">
-                    <option>1000</option>
-                    <option>1100</option>
-                    <option>1110</option>
-                    <option>1200</option>
-                    <option>1220</option>
-                    <option>1340</option>
-                    <option>1567</option>
-                    <option>1678</option>
-                    <option>1789</option>
-                  </datalist>
-                  <!--<input type="text" name="account_ID" class="form-control" ngModel />-->
-                </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="col-md-12">
+    <h6>Bank Data:</h6><br />
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>G/L Account</label>
+        </div>
+        <div class="col-8">-->
+<!--<input type="text" name="account" class="form-control" ngModel />-->
+<!--<table>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="text" (keyup)="getglaccountFirstWay($event)" id="glaccountFirstWay" list="dynmicglaccount" class="form-control" />
+                <datalist id="dynmicglaccount">
+                  <option *ngFor="let item of glaccount" [value]="item">{{item}}</option>
+                </datalist>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>House Bank/Account ID</label>
+        </div>
+        <div class="col-4">
+          <input type="text" name="house_bank" class="form-control" ngModel />
+        </div>
+        <div class="col-4">
+          <input type="text" name="Account_ID" class="form-control" ngModel />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>Amount</label>
+        </div>
+        <div class="col-4">
+          <input type="text" name="amount" class="form-control" ngModel />
+        </div>
+        <div class="col-4">
+          <input type="text" name="amount" class="form-control" ngModel />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>Fees</label>
+        </div>
+        <div class="col-8">
+          <input type="text" name="fees" class="form-control" ngModel />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>Assignment</label>
+        </div>
+        <div class="col-8">
+          <input type="text" name="assignment" class="form-control" ngModel />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>Exchange Rate</label>
+        </div>
+        <div class="col-8">
+          <input type="text" name="exchange_rate" class="form-control" ngModel />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>Amount/CCode Currency</label>
+        </div>
+        <div class="col-8">
+          <input type="text" name="ccode_currency" class="form-control" ngModel />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="col-md-12">
+    <h6>Open Item Selection:</h6><br />
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <label>Account Type/Account ID</label>
+        </div>
+        <div class="col-4">-->
+<!--<input type="text" name="account_type" class="form-control" ngModel/>-->
+<!--<select id="entry" name="account_type" class="form-control" ngModel>
+    <option>Select</option>
+  </select>
+</div>
+<div class="col-4">
+  <input type="text" list="staticAccounts" class="form-control" />
+  <datalist id="staticAccounts">
+    <option>1000</option>
+    <option>1100</option>
+    <option>1110</option>
+    <option>1200</option>
+    <option>1220</option>
+    <option>1340</option>
+    <option>1567</option>
+    <option>1678</option>
+    <option>1789</option>
+  </datalist>-->
+<!--<input type="text" name="account_ID" class="form-control" ngModel />-->
+<!--</div>
               </div>
             </div>
             <div class="form-group">
@@ -257,32 +257,32 @@
   </form>
 </div>
 <hr />
-<div class="tab">
-  <!--<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="pills-proposeditems-tab" data-bs-toggle="pill" data-bs-target="#pills-proposeditems" type="button" role="tab" aria-controls="pills-proposeditems" aria-selected="true">Proposed Items</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-PosttoGlaccount-tab" data-bs-toggle="pill" data-bs-target="#pills-PosttoGlaccount" type="button" role="tab" aria-controls="pills-PosttoGlaccount" aria-selected="false">Post to G/L Account</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-postonaccount-tab" data-bs-toggle="pill" data-bs-target="#pills-postonaccount" type="button" role="tab" aria-controls="pills-postonaccount" aria-selected="false">Post on Account</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-attachment-tab" data-bs-toggle="pill" data-bs-target="#pills-attachment" type="button" role="tab" aria-controls="pills-attachment" aria-selected="false">Attachment</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-notes-tab" data-bs-toggle="pill" data-bs-target="#pills-notes" type="button" role="tab" aria-controls="pills-notes" aria-selected="false">Notes</button>
-    </li>
-  </ul>
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-proposeditems" role="tabpanel" aria-labelledby="pills-proposeditems-tab">...</div>
-    <div class="tab-pane fade" id="pills-PosttoGlaccount" role="tabpanel" aria-labelledby="pills-PosttoGlaccount-tab">...</div>
-    <div class="tab-pane fade" id="pills-postonaccount" role="tabpanel" aria-labelledby="pills-postonaccount-tab">...</div>
-    <div class="tab-pane fade" id="pills-attachment" role="tabpanel" aria-labelledby="pills-attachment-tab">...</div>
-    <div class="tab-pane fade" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">...</div>
-  </div>-->
-  <nav>
+<div class="tab">-->
+<!--<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-proposeditems-tab" data-bs-toggle="pill" data-bs-target="#pills-proposeditems" type="button" role="tab" aria-controls="pills-proposeditems" aria-selected="true">Proposed Items</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-PosttoGlaccount-tab" data-bs-toggle="pill" data-bs-target="#pills-PosttoGlaccount" type="button" role="tab" aria-controls="pills-PosttoGlaccount" aria-selected="false">Post to G/L Account</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-postonaccount-tab" data-bs-toggle="pill" data-bs-target="#pills-postonaccount" type="button" role="tab" aria-controls="pills-postonaccount" aria-selected="false">Post on Account</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-attachment-tab" data-bs-toggle="pill" data-bs-target="#pills-attachment" type="button" role="tab" aria-controls="pills-attachment" aria-selected="false">Attachment</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-notes-tab" data-bs-toggle="pill" data-bs-target="#pills-notes" type="button" role="tab" aria-controls="pills-notes" aria-selected="false">Notes</button>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-proposeditems" role="tabpanel" aria-labelledby="pills-proposeditems-tab">...</div>
+  <div class="tab-pane fade" id="pills-PosttoGlaccount" role="tabpanel" aria-labelledby="pills-PosttoGlaccount-tab">...</div>
+  <div class="tab-pane fade" id="pills-postonaccount" role="tabpanel" aria-labelledby="pills-postonaccount-tab">...</div>
+  <div class="tab-pane fade" id="pills-attachment" role="tabpanel" aria-labelledby="pills-attachment-tab">...</div>
+  <div class="tab-pane fade" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">...</div>
+</div>-->
+<!--<nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-proposeditems-tab" data-bs-toggle="tab" data-bs-target="#nav-proposeditems" type="button" role="tab" aria-controls="nav-proposeditems">Proposed Items</button>
       <button class="nav-link" id="nav-PosttoGlaccount-tab" data-bs-toggle="tab" data-bs-target="#nav-PosttoGlaccount" type="button" role="tab" aria-controls="nav-PosttoGlaccount">Post to G/L Account</button>
@@ -434,9 +434,9 @@
 <div class="button">
   <button type="button" class="float-right btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showModal=true">Post</button>
   <button type="button" class="float-right btn btn-primary">Simulate</button>
-</div>
+</div>-->
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{'show':showModal}">
+<!--<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{'show':showModal}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -452,4 +452,84 @@
       </div>
     </div>
   </div>
+</div>-->
+
+<div class="col-lg-12 text-center">
+  <h1>
+    Authorization(Clerk)
+  </h1>
+  <br />
+
+  <table class="table table-responsive table-hover table-striped" aria-labelledby="tableLabel">
+    <thead>
+      <tr class="text-center">
+        <th></th>
+        <th>TXN ID</th>
+        <th>Payment Method</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>TXN Date</th>
+        <th>Description</th>
+        <th>Authorize</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--<tr *ngFor="let authorize of authorizes">
+    <td><input type="checkbox" /></td>
+    <td>{{ authorize.TxnID }}</td>
+    <td>{{ authorize.PaymentMethod }}</td>
+    <td>{{ authorize.amount }}</td>
+    <td>{{ authorize.currency }}</td>
+    <td>{{ authorize.txnDate }}</td>
+    <td>{{ authorize.Description }}</td>
+    <td>
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem></button>
+        <button ngbDropdownItem></button>
+        <button ngbDropdownItem></button></div>
+    </td>
+  </tr>-->
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>Txn10001</td>
+        <td>Debit Card</td>
+        <td>1000.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>House Tax</td>
+        <td>
+          <select id="authorize" name="authorize" class="form-control" >
+            Select
+            <option>Approve</option>
+            <option>Hold</option>
+            <option>Decline</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>Txn10005</td>
+        <td>Debit Card</td>
+        <td>750.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>Propery Tax</td>
+        <td>
+          <select id="authorize" name="authorize" class="form-control">
+            Select
+            <option>Approve</option>
+            <option>Hold</option>
+            <option>Decline</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+      <button type="button" class="btn btn-primary">Post</button>
+      <button type="button" class="float-right btn btn-primary">Cancel</button> 
+  </div>
 </div>
+
+

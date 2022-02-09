@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaymentProcessingManager.DBContexts;
 
 namespace PaymentProcessingManager.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    partial class MyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220208072552_Acquisition_AuthorizeStatus_Model")]
+    partial class Acquisition_AuthorizeStatus_Model
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,8 +37,8 @@ namespace PaymentProcessingManager.Migrations
                     b.Property<string>("BURSNotes")
                         .HasColumnType("text");
 
-                    b.Property<string>("Currency")
-                        .HasColumnType("text");
+                    b.Property<decimal>("Currency")
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<int?>("DepartmentID")
                         .HasColumnType("int");
@@ -53,8 +55,8 @@ namespace PaymentProcessingManager.Migrations
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("TransactionID")
-                        .HasColumnType("text");
+                    b.Property<int>("TransactionID")
+                        .HasColumnType("int");
 
                     b.HasKey("AcquisitionID");
 

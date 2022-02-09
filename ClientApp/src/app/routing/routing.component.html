@@ -1,0 +1,100 @@
+<div class="col-lg-12 text-center">
+  <h1>
+    Rule Based Routing
+  </h1>
+  <br />
+
+  <table class="table table-responsive table-hover table-striped" aria-labelledby="tableLabel">
+    <thead>
+      <tr class="text-center">
+        <th>TXN ID</th>
+        <th>Payment Method</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>TXN Date</th>
+        <th>Description</th>
+        <th>Department</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--<tr *ngFor="let role of roles">
+    <td>{{ role.TxnID }}</td>
+    <td>{{ role.PaymentMethod }}</td>
+    <td>{{ role.amount }}</td>
+    <td>{{ role.currency }}</td>
+    <td>{{ role.txnDate }}</td>
+    <td>{{ role.Description }}</td>
+    <td><select id="dept" name="department" class="form-control" ngModel>
+                <option>Select</option></select>
+      </td>
+  </tr>-->
+      <tr>
+        <td>Txn10001</td>
+        <td>Debit Card</td>
+        <td>1000.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>House Tax</td>
+        <td>
+          <select id="dept" name="department" class="form-control">
+            Select
+            <option>Minitry of Lands and Housing</option>
+            <option>Department of Water Affairs</option>
+            <option>Eletricity Board</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Txn10002</td>
+        <td>Credit Card</td>
+        <td>5000.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>Water Tax</td>
+        <td>
+          <select id="dept" name="department" class="form-control">
+            Select
+            <option>Minitry of Lands and Housing</option>
+            <option>Department of Water Affairs</option>
+            <option>Eletricity Board</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Txn10003</td>
+        <td>Cash</td>
+        <td>50.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>Propery Tax</td>
+        <td>
+          <select id="dept" name="department" class="form-control">
+            Select
+            <option>Minitry of Lands and Housing</option>
+            <option>Department of Water Affairs</option>
+            <option>Eletricity Board</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Txn10004</td>
+        <td>Net Banking</td>
+        <td>6000.0</td>
+        <td>BWP</td>
+        <td>01-02-2022</td>
+        <td>Propery Tax</td>
+        <td>
+          <select id="dept" name="department" class="form-control">
+            Select
+            <option>Minitry of Lands and Housing</option>
+            <option>Department of Water Affairs</option>
+            <option>Eletricity Board</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

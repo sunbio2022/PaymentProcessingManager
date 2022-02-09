@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PaymentProcessingManager.Model
 {
-    public class Department
+    public class Transaction
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public bool IsActive { get; set; }
+        public string TransactionID { get; set; }
     }
-}
+       
+    }

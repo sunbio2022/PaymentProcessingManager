@@ -14,8 +14,10 @@ import { PostIncomingPaymentsComponent } from './post-incoming-payments/post-inc
 import { BankAccountComponent } from './bank-account/bank-account.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { DepartmentComponent } from './department/department.component';
-import { ServiceregistryComponent } from './serviceregistry/serviceregistry.component';
+import { UsersComponent } from './users/users.component';
+import { AcquisitionComponent } from './acquisition/acquisition.component';
+import { RoutingComponent } from './routing/routing.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { ServiceregistryComponent } from './serviceregistry/serviceregistry.comp
     BankAccountComponent,
     RegisterComponent,
     LoginComponent,
-    DepartmentComponent,
-    ServiceregistryComponent
-    
+    UsersComponent,
+    AcquisitionComponent,
+    RoutingComponent,
+    AuthorizationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -46,8 +49,10 @@ import { ServiceregistryComponent } from './serviceregistry/serviceregistry.comp
       { path: 'bank-account', component: BankAccountComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'department', component: DepartmentComponent },
-      { path: 'serviceregistry', component: ServiceregistryComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'acquisition', component: AcquisitionComponent },
+      { path: 'routing', component: RoutingComponent },
+      { path: 'authorization', component: AuthorizationComponent },
     ])
   ],
   providers: [],

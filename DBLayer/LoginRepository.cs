@@ -41,5 +41,17 @@ namespace PaymentProcessingManager.DBLayer
                 return null;
             }
         }
+
+        public async Task<IEnumerable<User>>GetUsers()
+        {
+            try {
+                return await _dbcontext.Users.AsQueryable().ToListAsync();
+            }
+            catch(Exception ex)
+            {
+                throw (ex);
+            }
+        }
+       
     }
 }

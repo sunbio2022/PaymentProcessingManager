@@ -34,8 +34,8 @@ namespace PaymentProcessingManager
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<MyDBContext>(options => options.UseMySQL(mySqlConnectionStr));
             services.AddScoped<ILoginRepository, LoginRepository>();
-            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            services.AddScoped<IPaymentGatewayRepository,PaymentGatewayRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAcquisitionRepository, AcquisitionRepository>();
 
         }
 

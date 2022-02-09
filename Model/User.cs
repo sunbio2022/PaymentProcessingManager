@@ -14,8 +14,10 @@ namespace PaymentProcessingManager.Model
         public string Email { get; set; }
         public string Password { get; set; }
         public int RoleID { get; set; }
+        public virtual Role Role { get; set; }
         public int DepartmentID { get; set; }
-
+        public virtual Department Department { get; set; }
+        public string RoleName { get; internal set; }
     }
     public class Credentials
     {
