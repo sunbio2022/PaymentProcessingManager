@@ -19,14 +19,15 @@ namespace PaymentProcessingManager.DBLayer
         }
         public async Task<IEnumerable<User>> getUsersList()
         {
-            User user = new User();
-            return await dbContext.Users.AsQueryable().ToListAsync();
+            //User user = new User();
+            //return await dbContext.Users.AsQueryable().ToListAsync();
             //return await dbContext.Users.Select(u => new { UserName = u.UserName, Email = u.Email, DepartmentName = u.Department.Name, RoleName = u.Role.Name }).AsQueryable().ToListAsync();
             //var role = dbContext.Roles.Where(r => r.Id == user.RoleID).Select(r => r.Name).AsQueryable().ToListAsync();
             //return await dbContext.Users.AsQueryable().ToListAsync();
             //IEnumerable<User> x = new List<User>();
             //var user = await dbContext.Users.Select(u => new { UserName = u.UserName, Email = u.Email, DepartmentName = u.Department.Name, RoleName = u.Role.Name }).AsQueryable().FirstOrDefaultAsync();
             //return user;
+            return await dbContext.Users.AsQueryable().ToListAsync();
         }
 
         //public async Task<string> GetRoles(int roleId)
