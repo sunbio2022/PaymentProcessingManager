@@ -17,18 +17,24 @@
       </tr>
     </thead>
     <tbody>
-      <!--<tr *ngFor="let role of roles">
-    <td>{{ role.TxnID }}</td>
-    <td>{{ role.PaymentMethod }}</td>
+      <tr *ngFor="let role of roles">
+        <td>{{ role.transactionID }}</td>
+    <td>{{ role.paymentMethod }}</td>
     <td>{{ role.amount }}</td>
     <td>{{ role.currency }}</td>
-    <td>{{ role.txnDate }}</td>
-    <td>{{ role.Description }}</td>
-    <td><select id="dept" name="department" class="form-control" ngModel>
-                <option>Select</option></select>
-      </td>
-  </tr>-->
-      <tr>
+    <td>{{ role.transactionDate }}</td>
+    <td>{{ role.description }}</td>
+    <td>
+      <select class="form-control">
+        <option value="0">--Select--</option>
+        <option *ngFor="let dept of departments"
+                value={{dept.departmentID}}>
+          {{dept.department}}
+        </option>
+      </select>
+    </td>
+  </tr>
+      <!--<tr>
         <td>Txn10001</td>
         <td>Debit Card</td>
         <td>1000.0</td>
@@ -91,7 +97,7 @@
             <option>Eletricity Board</option>
           </select>
         </td>
-      </tr>
+      </tr>-->
     </tbody>
   </table>
 </div>

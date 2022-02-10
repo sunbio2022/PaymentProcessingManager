@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 
 namespace PaymentProcessingManager.DBLayer
 {
-    public class AuthorizationRepository : IAuthorizationRepository
+    public class RoutingRepository : IRoutingRepository
     {
         private MyDBContext dbcontext;
-        public AuthorizationRepository(MyDBContext context)
+        public RoutingRepository(MyDBContext context)
         {
             dbcontext = context;
         }
-
-        public async Task<IEnumerable<Acquisition>> GetAcquisitions()
+        public async Task<IEnumerable<Acquisition>> GetRouting()
         {
             try
             {
@@ -28,17 +27,17 @@ namespace PaymentProcessingManager.DBLayer
                 throw (ex);
             }
         }
-
-        public async Task<IEnumerable<AuthorizeStatus>> GetAuthorizeStatus()
+        public async Task<IEnumerable<Department>> GetDepartment()
         {
             try
             {
-                return await dbcontext.AuthorizeStatus.AsQueryable().ToListAsync();
+                return await dbcontext.Departments.AsQueryable().ToListAsync();
             }
             catch (Exception ex)
             {
                 throw (ex);
             }
         }
+
     }
 }

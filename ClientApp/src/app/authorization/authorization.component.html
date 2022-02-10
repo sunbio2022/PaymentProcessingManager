@@ -29,11 +29,12 @@
         <td>{{ authorize.transactionDate }}</td>
         <td>{{ authorize.description }}</td>
         <td>
-          <select id="dept" name="department" class="form-control">
-            Select
-            <option>Approve</option>
-            <option>Hold</option>
-            <option>Decline</option>
+          <select class="form-control">
+            <option value="0">--Select--</option>
+            <option *ngFor="let status of authorisestatus"
+                    value={{status.authorizeStatusID}}>
+              {{status.authorizeStatusName}}
+            </option>
           </select>
         </td>
       </tr>

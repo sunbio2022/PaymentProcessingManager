@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PaymentProcessingManager.Repository
 {
-    public interface IAuthorizationRepository
+    public interface IRoutingRepository
     {
-        public Task<IEnumerable<Acquisition>> GetAcquisitions();
-        public Task<IEnumerable<AuthorizeStatus>> GetAuthorizeStatus();
+        public Task<IEnumerable<Acquisition>>GetRouting();
+        public Task<IEnumerable<Department>> GetDepartment();
     }
 }

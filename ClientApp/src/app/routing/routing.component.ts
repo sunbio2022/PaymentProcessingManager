@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-routing',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoutingComponent implements OnInit {
 
-  constructor() { }
+  public roles: Acquisition[];
+  public departments: Department[];
+
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get<Acquisition[]>('/api/Routing/GetRouting').subscribe((data: any[]) => {
+      console.log(data);
+      this.roles = data;
+    });
+    http.get<Department[]>('/api/Routing/GetDepartment').subscribe(result => {
+      this.departments = result;
+    }, error => console.error(error));
+}
 
   ngOnInit() {
   }
 
+}
+interface Acquisition {
+  transactionID: string;
+  paymentMethod: string;
+  amount: number
+  currency: string;
+  transactionDate: Date;
+  description: string;
+}
+
+interface Department {
+  departmentID: number;
+  department: string;
 }

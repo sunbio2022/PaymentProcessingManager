@@ -33,6 +33,20 @@ namespace PaymentProcessingManager.Controllers
                 throw (ex);
             }
         }
+
+        [HttpGet]
+        [Route("GetAuthorizeStatus")]
+        public async Task<IEnumerable<AuthorizeStatus>> GetAuthorizeStatus()
+        {
+            try
+            {
+                return await authorrep.GetAuthorizeStatus();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
     }
 
 }
