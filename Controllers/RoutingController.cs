@@ -33,5 +33,13 @@ namespace PaymentProcessingManager.Controllers
         {
             return await _routingRepository.GetDepartment();
         }
+
+        [HttpGet]
+        [Route("GetDepartmentByDescription")]
+        public async Task<IEnumerable<Department>> GetDepartmentByDescription(string description)
+        {
+            return await _routingRepository.GetDepartmentByDescription(description);
+        }
     }
 }
+

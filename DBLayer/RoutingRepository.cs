@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PaymentProcessingManager.DBContexts;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace PaymentProcessingManager.DBLayer
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class RoutingRepository : IRoutingRepository
     {
         private MyDBContext dbcontext;
@@ -24,7 +27,7 @@ namespace PaymentProcessingManager.DBLayer
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw ex;
             }
         }
         public async Task<IEnumerable<Department>> GetDepartment()
@@ -35,9 +38,28 @@ namespace PaymentProcessingManager.DBLayer
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw ex;
             }
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<Department>> GetDepartmentByDescription(string description)
+         {
+            try
+            {
+                return await dbcontext.Departments.Where(d => d.Name.Contains(description)).AsQueryable().ToListAsync();
+               
+                // return await dbcontext.Departments.AsSingleQuery("select * from Departments where name LIKE %description% ").ToList().AsQueryable().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Task<string> IRoutingRepository.GetDepartmentByDescription(string Description)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

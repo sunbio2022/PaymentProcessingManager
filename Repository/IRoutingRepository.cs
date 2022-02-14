@@ -10,5 +10,7 @@ namespace PaymentProcessingManager.Repository
     {
         public Task<IEnumerable<Acquisition>>GetRouting();
         public Task<IEnumerable<Department>> GetDepartment();
+
+        public Task<IEnumerable<Department>> GetDepartmentByDescription(string Description);
     }
 }

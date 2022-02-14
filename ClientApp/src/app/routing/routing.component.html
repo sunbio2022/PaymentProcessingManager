@@ -17,7 +17,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let role of roles">
+      <tr *ngFor="let role of roles" >
+        <!--(change)="changeDepartment($event)" value="role.description">-->
         <td>{{ role.transactionID }}</td>
     <td>{{ role.paymentMethod }}</td>
     <td>{{ role.amount }}</td>
