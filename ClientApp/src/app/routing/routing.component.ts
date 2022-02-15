@@ -11,10 +11,10 @@ export class RoutingComponent implements OnInit {
   public roles: Acquisition[];
   public departments: Department[];
   Description: [
-    { description: 'House Tax', departments: ['Ministry of Lands and Housing'] },
-    { description: 'Water Tax', departments: ['Department of Water Affairs'] },
-    { description: 'Electricity Bill', departments: ['Electricity Board'] },
-    { description: 'select', departments: [''] }
+    { description: 'House Tax' },
+    { description: 'Water Tax' },
+    { description: 'Electricity Bill' },
+    { description: 'select' }
   ];
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
@@ -30,15 +30,16 @@ export class RoutingComponent implements OnInit {
   ngOnInit() {
     //this.changeDepartment(this.Description)
   }
-    //changeDepartment(Description: any) {
-    //  this.http.get('/api/Routing/GetDepartment').subscribe((res: any) => {
-    //    this.departments = res['departments'].filter(
-    //      (res: any) => res.Description == Description!.value
-    //    ),
-    //    console.log(this.Description);
-    //  })
-    //}
+    changeDepartment(.target.value) {
+      this.http.get<Department[]>('/api/Routing/GetDepartmentByDescription').subscribe((res: any) => {
+        this.departments = res['departments'].filter(
+          (res: any) => res.Description == Description!.value
+        ),
+        console.log(this.Description);
+      })
+    }
 }
+
 interface Acquisition {
   transactionID: string;
   paymentMethod: string;
@@ -49,7 +50,7 @@ interface Acquisition {
 }
 
 interface Department {
-  departmentID: number;
-  department: string;
+  id: number;
+  name: string;
 }
 

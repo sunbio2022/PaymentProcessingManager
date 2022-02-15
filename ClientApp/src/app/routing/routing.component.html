@@ -17,8 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let role of roles" >
-        <!--(change)="changeDepartment($event)" value="role.description">-->
+      <tr *ngFor="let role of roles" (change)="changeDepartment($event)" value="role.description">
         <td>{{ role.transactionID }}</td>
     <td>{{ role.paymentMethod }}</td>
     <td>{{ role.amount }}</td>
@@ -29,8 +28,8 @@
       <select class="form-control">
         <option value="0">--Select--</option>
         <option *ngFor="let dept of departments"
-                value={{dept.departmentID}}>
-          {{dept.department}}
+                value={{dept.id}}>
+          {{dept.name}}
         </option>
       </select>
     </td>
