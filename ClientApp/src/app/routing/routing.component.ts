@@ -30,7 +30,7 @@ export class RoutingComponent implements OnInit {
   ngOnInit() {
     //this.changeDepartment(this.Description)
   }
-    changeDepartment(.target.value) {
+    changeDepartment(Description: any) {
       this.http.get<Department[]>('/api/Routing/GetDepartmentByDescription').subscribe((res: any) => {
         this.departments = res['departments'].filter(
           (res: any) => res.Description == Description!.value
