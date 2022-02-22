@@ -12,7 +12,7 @@ td {
 }
 
   td:nth-child(4) {
-    min-width: 500px;
+    min-width: 250px;
   }
 
 td, th {
@@ -22,7 +22,7 @@ td, th {
 
 th {
   background-color: rgb(235,235,235);
-  width: 450px;
+  width: 250px;
 }
 
 td {

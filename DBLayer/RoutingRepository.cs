@@ -41,8 +41,6 @@ namespace PaymentProcessingManager.DBLayer
                 throw ex;
             }
         }
-
-        [HttpGet]
         public async Task<IEnumerable<Department>> GetDepartmentByDescription(string description)
          {
             try
@@ -57,9 +55,16 @@ namespace PaymentProcessingManager.DBLayer
             }
         }
 
-        //Task<string> IRoutingRepository.GetDepartmentByDescription(string Description)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task<Acquisition> GetAcquisitionById(int AcquisitionID)
+        {
+            try
+            {
+                return await dbcontext.Acquisition.FindAsync(AcquisitionID);
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
     }
 }

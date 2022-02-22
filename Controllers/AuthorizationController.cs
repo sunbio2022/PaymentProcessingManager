@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PaymentProcessingManager.Model;
@@ -21,6 +22,7 @@ namespace PaymentProcessingManager.Controllers
         }
 
         [HttpGet]
+        //[Authorize(Roles = "Department Head,Department Clerk")]
         [Route("GetAcquisitions")]
         public async Task<IEnumerable<Acquisition>> GetAcquisitions()
         {

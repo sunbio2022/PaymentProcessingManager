@@ -8,17 +8,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostIncomingPaymentsComponent implements OnInit {
 
-  public authorizes: Acquisition[];
-  public authorisestatus: AuthorizeStatus[];
+  //public authorizes: Acquisition[];
+  //public authorisestatus: AuthorizeStatus[];
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { 
-  http.get<Acquisition[]> ('/api/Authorization/GetAcquisitions').subscribe((data: any[]) => {
-    console.log(data);
-    this.authorizes = data;
-  });
-  http.get<AuthorizeStatus[]>('/api/Authorization/GetAuthorizeStatus').subscribe(result => {
-  this.authorisestatus = result;
-  }, error => console.error(error));
+  //http.get<Acquisition[]> ('/api/Authorization/GetAcquisitions').subscribe((data: any[]) => {
+  //  console.log(data);
+  //  this.authorizes = data;
+  //});
+  //http.get<AuthorizeStatus[]>('/api/Authorization/GetAuthorizeStatus').subscribe(result => {
+  //this.authorisestatus = result;
+  //}, error => console.error(error));
 }
 
   ngOnInit() {
@@ -33,16 +33,16 @@ export class PostIncomingPaymentsComponent implements OnInit {
   //}
 }
 
-interface Acquisition {
-  transactionID: string;
-  paymentMethod: string;
-  amount: number
-  currency: string;
-  transactionDate: Date;
-  description: string;
-}
+//interface Acquisition {
+//  transactionID: string;
+//  paymentMethod: string;
+//  amount: number
+//  currency: string;
+//  transactionDate: Date;
+//  description: string;
+//}
 
-interface AuthorizeStatus {
-  authorizeStatusID: number;
-  authorizeStatusName: string;
-}
+//interface AuthorizeStatus {
+//  authorizeStatusID: number;
+//  authorizeStatusName: string;
+//}

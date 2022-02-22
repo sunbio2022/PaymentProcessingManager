@@ -13,7 +13,7 @@ td {
 }
 
   td:nth-child(5) {
-    min-width: 500px;
+    min-width: 250px;
   }
 
 td, th {
@@ -22,7 +22,7 @@ td, th {
 }
 
 th {
-  width: 400px;
+  width: 250px;
 }
 
 td {

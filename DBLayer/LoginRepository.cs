@@ -31,7 +31,7 @@ namespace PaymentProcessingManager.DBLayer
 
         public async Task<string> GetRoleByName(string userName)
         {
-            int roleID = _dbcontext.Users.Where(u => u.UserName == userName).Select(u => u.RoleID).FirstOrDefault();
+            int? roleID = _dbcontext.Users.Where(u => u.UserName == userName).Select(u => u.RoleID).FirstOrDefault();
             if (roleID > 0)
             {
                 return await _dbcontext.Roles.Where(r => r.Id == roleID).Select(r => r.Name).AsQueryable().FirstOrDefaultAsync();
