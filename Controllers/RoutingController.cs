@@ -49,9 +49,9 @@ namespace PaymentProcessingManager.Controllers
             return await _routingRepository.GetAcquisitionById(AcquisitionID);
         }
 
-        [HttpPost]
-        [Route("InsertRecord")]
-        public ActionResult InsertRecord(Acquisition acquisition)
+        [HttpPut]
+        [Route("UpdateDepartment")]
+        public ActionResult UpdateDepartment([FromBody] Acquisition acquisition)
         {
             if (!ModelState.IsValid)
             {
@@ -60,18 +60,19 @@ namespace PaymentProcessingManager.Controllers
             try
             {
                 MyDBContext dbcontext = new MyDBContext();
-                var sq = dbcontext?.Acquisition?.Where(a => a.AcquisitionID== acquisition.AcquisitionID).FirstOrDefault();
-                if(sq != null)
+                var sq = dbcontext.Acquisition.Where(a => a.AcquisitionID== acquisition.AcquisitionID).FirstOrDefault();
+                //dbcontext.Entry(sq).Property(s=>s.DepartmentID).IsModified=true;
+                if (sq != null)
                 {
-                    sq.Department = acquisition.Department;
-                    dbcontext.SaveChanges(); 
+                    sq.DepartmentID = acquisition.DepartmentID;
+                    dbcontext.SaveChanges();
                 }
+                return NoContent();
             }
             catch (Exception ex)
             {
                 throw (ex);
             }
-            return Ok();
             //dbcontext.Acquisition.Add(acquisition);
             //await dbcontext.SaveChangesAsync();
         }

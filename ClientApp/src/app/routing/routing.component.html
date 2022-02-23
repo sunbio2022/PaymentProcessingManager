@@ -7,17 +7,20 @@
   <table class="table table-responsive table-hover table-striped" aria-labelledby="tableLabel">
     <thead>
       <tr class="text-center">
+        <th>Sl No</th>
         <th>TXN ID</th>
         <th>Payment Method</th>
         <th>Amount</th>
         <th>Currency</th>
         <th>TXN Date</th>
         <th>Description</th>
-        <th>Department</th>
+        <th style="width: 300px;">Department</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let role of roles">
+      <tr *ngFor="let role of roles; let i = index">
+        <td>{{ i+1 }}</td>
         <td>{{ role.transactionID }}</td>
         <td>{{ role.paymentMethod }}</td>
         <td>{{ role.amount }}</td>
@@ -29,14 +32,14 @@
             <option value="0">--Select--</option>
             <option *ngFor="let dept of departments" [selected]="dept.id ==role.departmentID" value={{dept.id}}>{{dept.name}}</option>
             <!--<option *ngFor="let dept of departments" value="0">-Select-{{role.departmentID}}{{dept.id}}</option>
-                      <option value="2" [selected]="role.departmentID ==2">Department of Water Affairs</option>
-            <option value="1" [selected]="role.departmentID ==1">Ministry of Lands and Housing</option>
-            <option value="3" [selected]="role.departmentID ==3">Electricity Board</option>-->
+                <option value="2" [selected]="role.departmentID ==2">Department of Water Affairs</option>
+      <option value="1" [selected]="role.departmentID ==1">Ministry of Lands and Housing</option>
+      <option value="3" [selected]="role.departmentID ==3">Electricity Board</option>-->
           </select>
         </td>
         <td>
-          <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
-          <!--<button type="button" class=" btn btn-primary">Cancel</button>-->
+          <button type="button" class="btn btn-primary" (click)="OnSubmit()">Save</button>
+          <button type="button" class=" btn btn-Secondary" (click)="OnCancel()">Cancel</button>
         </td>
       </tr>
     </tbody>

@@ -12,11 +12,6 @@ export class RoutingComponent implements OnInit {
 
   public roles: Acquisition[];
   public departments: Department[];
-  //Description: any[] = [
-  //  { id: 1, description: 'House Tax', },
-  //  { id: 2, description: 'Water Tax' },
-  //  { id: 3, description: 'Electricity Bill' },
-  //];
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Acquisition[]>('/api/Routing/GetRouting').subscribe((data: any[]) => {
@@ -28,6 +23,14 @@ export class RoutingComponent implements OnInit {
       console.log(result);
     }, error => console.error(error));
   }
+  OnSubmit() {
+    this.http.get('/api/Routing/InsertRecord').subscribe(result => {
+      console.log(result);
+    });
+  }
+    OnCancel(){
+      console.log();
+    }
 
   ngOnInit() {
   }
