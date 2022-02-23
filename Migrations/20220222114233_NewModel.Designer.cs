@@ -9,8 +9,8 @@ using PaymentProcessingManager.DBContexts;
 namespace PaymentProcessingManager.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20220209050638_Currency")]
-    partial class Currency
+    [Migration("20220222114233_NewModel")]
+    partial class NewModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,7 +138,7 @@ namespace PaymentProcessingManager.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("DepartmentID")
+                    b.Property<int?>("DepartmentID")
                         .HasColumnType("int");
 
                     b.Property<string>("FolderPath")
@@ -147,7 +147,7 @@ namespace PaymentProcessingManager.Migrations
                     b.Property<string>("MerchantID")
                         .HasColumnType("text");
 
-                    b.Property<int>("PaymentGatewayID")
+                    b.Property<int?>("PaymentGatewayID")
                         .HasColumnType("int");
 
                     b.HasKey("ServiceRegistryID");
@@ -179,7 +179,7 @@ namespace PaymentProcessingManager.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("DepartmentID")
+                    b.Property<int?>("DepartmentID")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -188,7 +188,7 @@ namespace PaymentProcessingManager.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
-                    b.Property<int>("RoleID")
+                    b.Property<int?>("RoleID")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -222,15 +222,11 @@ namespace PaymentProcessingManager.Migrations
                 {
                     b.HasOne("PaymentProcessingManager.Model.Department", "Department")
                         .WithMany()
-                        .HasForeignKey("DepartmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentID");
 
                     b.HasOne("PaymentProcessingManager.Model.PaymentGateway", "PaymentGateway")
                         .WithMany()
-                        .HasForeignKey("PaymentGatewayID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PaymentGatewayID");
 
                     b.Navigation("Department");
 
@@ -241,15 +237,11 @@ namespace PaymentProcessingManager.Migrations
                 {
                     b.HasOne("PaymentProcessingManager.Model.Department", "Department")
                         .WithMany()
-                        .HasForeignKey("DepartmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentID");
 
                     b.HasOne("PaymentProcessingManager.Model.Role", "Role")
                         .WithMany()
-                        .HasForeignKey("RoleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoleID");
 
                     b.Navigation("Department");
 

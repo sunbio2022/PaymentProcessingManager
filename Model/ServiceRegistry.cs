@@ -10,9 +10,9 @@ namespace PaymentProcessingManager.Model
     {
         [Key]
         public int ServiceRegistryID { get; set; }
-        public int PaymentGatewayID { get; set; }
+        public int? PaymentGatewayID { get; set; }
         public virtual PaymentGateway PaymentGateway { get; set; }
-        public int DepartmentID { get; set; }
+        public int? DepartmentID { get; set; }
         public virtual Department Department { get; set; }
         public string MerchantID { get; set; }
         public string FolderPath { get; set; }
