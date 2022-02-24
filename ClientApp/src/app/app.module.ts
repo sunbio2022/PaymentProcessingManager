@@ -18,6 +18,9 @@ import { UsersComponent } from './users/users.component';
 import { AcquisitionComponent } from './acquisition/acquisition.component';
 import { RoutingComponent } from './routing/routing.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { FooterComponent } from './footer/footer.component';
+import { BursInterfaceComponent } from './burs-interface/burs-interface.component';
+import { ReconsilationComponent } from './reconsilation/reconsilation.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { AuthorizationComponent } from './authorization/authorization.component'
     UsersComponent,
     AcquisitionComponent,
     RoutingComponent,
-    AuthorizationComponent
+    AuthorizationComponent,
+    FooterComponent,
+    BursInterfaceComponent,
+    ReconsilationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -53,6 +59,7 @@ import { AuthorizationComponent } from './authorization/authorization.component'
       { path: 'acquisition', component: AcquisitionComponent },
       { path: 'routing', component: RoutingComponent },
       { path: 'authorization', component: AuthorizationComponent },
+      { path: 'reconsilation', component: ReconsilationComponent },
     ])
   ],
   providers: [],

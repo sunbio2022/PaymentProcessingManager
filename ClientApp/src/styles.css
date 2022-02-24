@@ -23,3 +23,51 @@ code {
 .mb-5 {
   padding: 250px 15px;
 }
+
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+  input[type="checkbox"]:hover {
+      cursor:pointer;
+  }
+
+.row[_ngcontent-ng-cli-universal-c1], row[_ngcontent-ng-cli-universal-c2], row[_ngcontent-ng-cli-universal-c3], row[_ngcontent-ng-cli-universal-c4] {
+  display: flex !important;
+}
+
+.navbar-brand {
+    font-weight:bold;
+}
+
+.footer {
+  /* background: #f2edf3;*/
+  border-top: 1px solid #e7dee9;
+  padding: 30px 1rem;
+  transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  font-size: calc(0.875rem - 0.05rem);
+  font-family: "ubuntu-regular", sans-serif;
+}
+
+  .footer a {
+    color: #007bff;
+    font-size: inherit;
+  }
+
+.text-muted {
+  color: #6c757d !important;
+}
+.text-sm-left {
+  text-align: left !important;
+}
+.d-sm-inline-block {
+  display: inline-block !important;
+}
+
+.row[_ngcontent-ng-cli-universal-c3] {
+  display: flex!important;
+}

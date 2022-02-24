@@ -1,4 +1,4 @@
-table {
+/*table {
   border-collapse: collapse;
   border: 2px solid rgb(200,200,200);
   letter-spacing: 1px;
@@ -40,3 +40,4 @@ tr:nth-child(odd) td {
 caption {
   padding: 10px;
 }
+*/
