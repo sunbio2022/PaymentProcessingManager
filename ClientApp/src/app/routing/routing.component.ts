@@ -24,9 +24,9 @@ export class RoutingComponent implements OnInit {
     }, error => console.error(error));
   }
   OnSubmit() {
-    this.http.get('/api/Routing/InsertRecord').subscribe(result => {
-      console.log(result);
-    });
+    //this.http.put('/api/Routing/UpdateRecord').subscribe(result => {
+    //  console.log(result);
+    //});
   }
     OnCancel(){
       console.log();

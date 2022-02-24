@@ -60,8 +60,8 @@ namespace PaymentProcessingManager.Controllers
             try
             {
                 MyDBContext dbcontext = new MyDBContext();
-                var sq = dbcontext.Acquisition.Where(a => a.AcquisitionID== acquisition.AcquisitionID).FirstOrDefault();
-                //dbcontext.Entry(sq).Property(s=>s.DepartmentID).IsModified=true;
+                var sq = dbcontext?.Acquisition?.Where(a => a.AcquisitionID== acquisition.AcquisitionID).FirstOrDefault();
+                //dbcontext.Entry(acquisition).Property(s=>s.DepartmentID).IsModified=true;
                 if (sq != null)
                 {
                     sq.DepartmentID = acquisition.DepartmentID;
