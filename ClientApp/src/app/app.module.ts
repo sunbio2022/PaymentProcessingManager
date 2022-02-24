@@ -18,6 +18,7 @@ import { UsersComponent } from './users/users.component';
 import { AcquisitionComponent } from './acquisition/acquisition.component';
 import { RoutingComponent } from './routing/routing.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { ServiceregistryComponent } from './serviceregistry/serviceregistry.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AuthorizationComponent } from './authorization/authorization.component'
     UsersComponent,
     AcquisitionComponent,
     RoutingComponent,
-    AuthorizationComponent
+    AuthorizationComponent,
+    ServiceregistryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -53,6 +55,7 @@ import { AuthorizationComponent } from './authorization/authorization.component'
       { path: 'acquisition', component: AcquisitionComponent },
       { path: 'routing', component: RoutingComponent },
       { path: 'authorization', component: AuthorizationComponent },
+      { path: 'serviceregistry', component: ServiceregistryComponent },
     ])
   ],
   providers: [],
