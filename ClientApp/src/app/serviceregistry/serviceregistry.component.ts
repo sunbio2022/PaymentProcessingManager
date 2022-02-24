@@ -24,12 +24,15 @@ export class ServiceregistryComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit(serviceregistryform) {
-    const data = JSON.stringify(serviceregistryform.value);
-    this.http.post('/api/ServiceRegistry', data).subscribe(res => {
-      console.log(res);
-    })
-    console.warn(data);
+  //onSubmit(serviceregistryform) {
+  //  const data = JSON.stringify(serviceregistryform.value);
+  //  this.http.post('/api/ServiceRegistry/AddServiceRegistry', data).subscribe(res => {
+  //    console.log(res);
+  //  })
+  //}
+  upload(files) {
+    if (files.length === 0)
+      return ;
   }
 }
 

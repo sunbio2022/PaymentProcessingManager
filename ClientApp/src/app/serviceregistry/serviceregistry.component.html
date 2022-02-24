@@ -54,7 +54,7 @@
                   <label>Folder Path</label>
                 </div>
                 <div class="col-8">
-                  <input type="file" name="folder path" class="form-control" (change)="handleFileInput($event.target.files)" ngModel />
+                  <input type="file" id="folderpath" name="folder path" class="form-control" (change)="upload(file.files)" ngModel /> <label class="custom-file-label" for="selected">{{ selected.value }}</label>
                 </div>
               </div>
             </div>
