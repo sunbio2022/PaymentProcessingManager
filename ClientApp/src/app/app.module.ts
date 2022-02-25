@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 //import { BursInterfaceComponent } from './burs-interface/burs-interface.component';
 import { ReconsilationComponent } from './reconsilation/reconsilation.component';
 import { ServiceregistryComponent } from './serviceregistry/serviceregistry.component';
+import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ServiceregistryComponent } from './serviceregistry/serviceregistry.comp
     AuthorizationComponent,
     FooterComponent,
     ReconsilationComponent,
-    ServiceregistryComponent
+    ServiceregistryComponent,
+    ServiceRegistryViewComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -60,9 +62,10 @@ import { ServiceregistryComponent } from './serviceregistry/serviceregistry.comp
       { path: 'acquisition', component: AcquisitionComponent },
       { path: 'routing', component: RoutingComponent },
       { path: 'authorization', component: AuthorizationComponent },
-      { path: 'reconsilation', component: AuthorizationComponent },
+      { path: 'reconsilation', component: ReconsilationComponent },
       { path: 'footer', component: FooterComponent },
       { path: 'serviceregistry', component: ServiceregistryComponent },
+      { path: 'service-registry-view', component: ServiceRegistryViewComponent },
     ])
   ],
   providers: [],

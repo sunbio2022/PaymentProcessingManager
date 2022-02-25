@@ -12,7 +12,7 @@ namespace PaymentProcessingManager.Repository
         public Task<IEnumerable<Department>> GetDepartments();
         public Task<IEnumerable<PaymentGateway>> GetPaymentGateways();
 
-        public Task<IEnumerable<ServiceRegistry>> GetServiceRegistries();
+        public Task<IEnumerable<ServiceRegistry>> GetServiceRegistry();
 
         public Task<ServiceRegistry> SaveServiceRegistry(ServiceRegistry serviceRegistry);
     }

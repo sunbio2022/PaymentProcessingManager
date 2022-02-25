@@ -21,7 +21,7 @@ namespace PaymentProcessingManager.DBLayer
         {
             try
             {
-                return await dbcontext.Acquisition.AsQueryable().ToListAsync();
+                return await dbcontext.Acquisition.Include(a=>a.AuthorizeStatus).AsQueryable().ToListAsync();
             }
             catch (Exception ex)
             {

@@ -1,11 +1,12 @@
 ﻿using PaymentProcessingManager.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
+using System.Configuration;
 
 namespace PaymentProcessingManager.DBContexts
 {
     public class MyDBContext : DbContext
-    {
+    {        
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Department> Departments { get; set; }
@@ -55,6 +56,7 @@ namespace PaymentProcessingManager.DBContexts
         //}
         public MyDBContext([NotNullAttribute] DbContextOptions options) : base(options)
         {
+            
         }
 
         public MyDBContext()

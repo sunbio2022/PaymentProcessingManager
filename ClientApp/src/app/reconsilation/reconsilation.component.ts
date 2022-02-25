@@ -31,6 +31,11 @@ export class ReconsilationComponent implements OnInit {
 
   ngOnInit() {
   }
+
+onSelect(selectedItem: any) {
+  console.log("Selected item Id: ", selectedItem.acquisitionID); // You get the Id of the selected item here
+  alert(selectedItem.burs);
+  }
 }
 
 interface Acquisition {
@@ -39,7 +44,7 @@ interface Acquisition {
   paymentMethod: string;
   amount: number
   currency: string;
-  transactionDate: Date;
+  transactionDate: string;
   description: string;
   departmentID: number;
 }
