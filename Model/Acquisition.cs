@@ -24,6 +24,10 @@ namespace PaymentProcessingManager.Model
         public int? PostData { get; set; }
         public string BURS { get; set; }
         public string BURSNotes { get; set; }
+        public int? CustomerID { get; set; }
+        public Customer Customer { get; set; }
+        public int ServiceRegistryID { get; set; }
+        public ServiceRegistry ServiceRegistry { get; set; }
         
     }
 }
