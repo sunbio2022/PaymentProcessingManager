@@ -1,83 +1,71 @@
-<div class="col-lg-12 text-center">
-  <h1>
-    Authorization
-  </h1>
-  <br />
-
-  <table class="table table-responsive table-hover table-striped" aria-labelledby="tableLabel">
-    <thead>
-      <tr class="text-center">
-        <th></th>
-        <th>Sl No</th>
-        <th>Transaction ID</th>
-        <th>Payment Method</th>
-        <th>Amount</th>
-        <th>Currency</th>
-        <th>TXN Date</th>
-        <th>Description</th>
-        <th>Authorize</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let authorize of authorizes; let i = index">
-        <td><input type="checkbox" /></td>
-        <td>{{ i+1 }}</td>
-        <td>{{ authorize.transactionID }}</td>
-        <td>{{ authorize.paymentMethod }}</td>
-        <td>{{ authorize.amount }}</td>
-        <td>{{ authorize.currency }}</td>
-        <td>{{ authorize.transactionDate }}</td>
-        <td>{{ authorize.description }}</td>
-        <td>
-          <select class="form-control">
-            <option value="0">--Select--</option>
-            <option *ngFor="let status of authorisestatus"
-                    value={{status.authorizeStatusID}}>
-              {{status.authorizeStatusName}}
-            </option>
-          </select>
-        </td>
-      </tr>
-
-      <!--<tr>
-        <td><input type="checkbox" /></td>
-        <td>Txn10001</td>
-        <td>Debit Card</td>
-        <td>1000.0</td>
-        <td>BWP</td>
-        <td>01-02-2022</td>
-        <td>House Tax</td>
-        <td>
-          <select id="authorize" name="authorize" class="form-control">
-            Select
-            <option>Approve</option>
-            <option>Hold</option>
-            <option>Decline</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <td>Txn10005</td>
-        <td>Debit Card</td>
-        <td>750.0</td>
-        <td>BWP</td>
-        <td>01-02-2022</td>
-        <td>Propery Tax</td>
-        <td>
-          <select id="authorize" name="authorize" class="form-control">
-            Select
-            <option>Approve</option>
-            <option>Hold</option>
-            <option>Decline</option>
-          </select>
-        </td>
-      </tr>-->
-    </tbody>
-  </table>
-  <div class="row">
-    <button type="button" class="btn btn-primary">Post</button>
-    <button type="button" class="float-right btn btn-primary">Cancel</button>
+<div class="row">
+  <div class="col-lg-12">
+    <h4>
+      Authorization
+    </h4>
   </div>
 </div>
 
+<div class="row mb-3">
+  <div class="col-md-12">
+    <div class="row justify-content-end">
+      <div class="col-md-3 input-group mb-1">
+        <input type="text" class="form-control" placeholder="Search here" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button">Search</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-secondary mr-3 mb-1">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table table-responsive">
+    <table class="table table-striped table-bordered" aria-labelledby="tableLabel">
+      <thead>
+        <tr class="text-center">
+          <th>Serial Number</th>
+          <th>Transaction ID</th>
+          <th>Payment Method</th>
+          <th>Amount</th>
+          <th>Currency</th>
+          <th>Transaction Date</th>
+          <th>Description</th>
+          <th style="min-width:12%">Authorize</th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let authorize of authorizes; let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{ authorize.transactionID }}</td>
+          <td>{{ authorize.paymentMethod }}</td>
+          <td>{{ authorize.amount }}</td>
+          <td>{{ authorize.currency }}</td>
+          <td>{{ authorize.transactionDate }}</td>
+          <td>{{ authorize.description }}</td>
+          <td>
+            <select class="form-control">
+              <option value="0">--Select--</option>
+              <option *ngFor="let status of authorisestatus"
+                      value={{status.authorizeStatusID}}>
+                {{status.authorizeStatusName}}
+              </option>
+            </select>
+          </td>
+          <td><input type="checkbox" /></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+
+  <div class="col-md-12 text-right">
+    <button type="button" class="btn btn-outline-primary">Save</button>
+    <button type="button" class="btn btn-outline-secondary ml-3">Cancel</button>
+  </div>
+
+</div>

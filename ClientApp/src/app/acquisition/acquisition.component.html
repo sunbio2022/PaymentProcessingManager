@@ -1,40 +1,60 @@
-<div class="col-lg-12 text-center">
-  <h1>
-    Log Acquire
-  </h1>
-  <br />
-  <table class="table table-responsive table-hover table-striped" aria-labelledby="tableLabel">
-    <thead>
-      <tr class="text-center">
-        <th>Serial Number</th>
-        <th>Transaction ID</th>
-        <th>Payment Method</th>
-        <th>Amount</th>
-        <th>Currency</th>
-        <th>Transaction Date</th>
-        <th>Description</th>
-        <th>Select</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let acquisition of acquisitions; let i = index">
-        <td>{{ i+1 }}</td>
-        <td>{{ acquisition.transactionID }}</td>
-        <td>{{ acquisition.paymentMethod }}</td>
-        <td>{{ acquisition.amount }}</td>
-        <td>{{ acquisition.currency }}</td>
-        <td>{{ acquisition.transactionDate }}</td>
-        <td>{{ acquisition.description }}</td>
-        <td><input type="checkbox" /></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-lg-12">
+    <h4>
+      Log Acquire
+    </h4>
+  </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-12 text-right">
-      <button type="button" class="btn btn-primary">Move</button>
-      <button type="button" class="btn btn-secondary ml-1">Cancel</button>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <div class="row justify-content-end">
+      <div class="col-md-3 input-group mb-1">
+        <input type="text" class="form-control" placeholder="Search here" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button">Search</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-secondary mr-3 mb-1">Cancel</button>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table table-responsive">
+      <table class="table table-striped table-bordered" aria-labelledby="tableLabel">
+        <thead>
+          <tr class="text-center">
+            <th>Serial Number</th>
+            <th>Transaction ID</th>
+            <th>Payment Method</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Transaction Date</th>
+            <th>Description</th>
+            <th>Select</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let acquisition of acquisitions; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ acquisition.transactionID }}</td>
+            <td>{{ acquisition.paymentMethod }}</td>
+            <td>{{ acquisition.amount }}</td>
+            <td>{{ acquisition.currency }}</td>
+            <td>{{ acquisition.transactionDate }}</td>
+            <td>{{ acquisition.description }}</td>
+            <td><input type="checkbox" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-md-12 text-right">
+    <button type="button" class="btn btn-outline-primary">Move</button>
+    <button type="button" class="btn btn-outline-secondary ml-3">Cancel</button>
   </div>
 </div>
 
