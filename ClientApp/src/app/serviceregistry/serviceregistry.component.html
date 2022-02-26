@@ -9,7 +9,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <div class="row justify-content-end">
-      <button type="button" class="btn btn-outline-primary mr-3 mb-1" [routerLink]="['/users']">View Services</button>
+      <button type="button" class="btn btn-outline-primary mr-3 mb-1" [routerLink]="['/service-registry-view']">View Service Registry</button>
     </div>
   </div>
 </div>
@@ -17,7 +17,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <div class="section">
-      <form #serviceregistryform="ngForm" (ngSubmit)="onSubmit(serviceregistryform.value)">
+      <form [formGroup]="form" (ngSubmit)="submitForm()">
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
@@ -26,8 +26,7 @@
                   <label>Payment Gateway</label>
                 </div>
                 <div class="col-8">
-                  <select class="form-control">
-                    <option value="0">--Select--</option>
+                  <select class="form-control" formControlName="paymentgateaway" (change)="handleChange($event.target.selectedIndex)" >
                     <option *ngFor="let payment of paymentgateway"
                             value={{payment.paymentGatewayID}}>
                       {{payment.paymentGatewayName}}
@@ -42,8 +41,7 @@
                   <label>Department Name</label>
                 </div>
                 <div class="col-8">
-                  <select class="form-control">
-                    <option value="0">--Select--</option>
+                  <select class="form-control" formControlName="department" (change)="deptChange($event.target.selectedIndex)" >
                     <option *ngFor="let dept of departments"
                             value={{dept.id}}>
                       {{dept.name}}
@@ -58,7 +56,7 @@
                   <label>Merchant ID</label>
                 </div>
                 <div class="col-8">
-                  <input type="text" name="merchant Id" class="form-control" ngModel />
+                  <input type="text" name="merchant Id" class="form-control" formControlName="merchantID" />
                 </div>
               </div>
             </div>
@@ -68,14 +66,13 @@
                   <label>Folder Path</label>
                 </div>
                 <div class="col-8">
-                  <input type="text" name="folderPath" class="form-control" ngModel />
-                  <!--<input type="file" name="folder path" class="form-control" (change)="handleFileInput($event.target.files)" ngModel />-->
+                  <input type="text" name="folder path" class="form-control" formControlName="folderpath" />
                 </div>
               </div>
             </div>
 
             <div class="form-group text-right">
-              <button type="submit" class="btn btn-outline-primary">Save</button>
+              <button type="submit" class="btn btn-outline-primary" >Save</button>
               <button type="submit" class="btn btn-outline-secondary ml-3">Cancel</button>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -25,6 +25,7 @@ import { ServiceregistryComponent } from './serviceregistry/serviceregistry.comp
 import { AccountReportComponent } from './account-report/account-report.component';
 import { CustomerReportComponent } from './customer-report/customer-report.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
 
 @NgModule({
   declarations: [
@@ -44,15 +45,13 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
     AuthorizationComponent,
     FooterComponent,
     ReconsilationComponent,
-    ServiceregistryComponent,
-    AccountReportComponent,
-    CustomerReportComponent,
-    CustomerProfileComponent
+    ServiceregistryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -66,11 +65,9 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
       { path: 'acquisition', component: AcquisitionComponent },
       { path: 'routing', component: RoutingComponent },
       { path: 'authorization', component: AuthorizationComponent },
-      { path: 'reconsilation', component: AuthorizationComponent },
+      { path: 'reconsilation', component: ReconsilationComponent },
       { path: 'footer', component: FooterComponent },
       { path: 'serviceregistry', component: ServiceregistryComponent },
-      { path: 'customer-report', component: CustomerReportComponent },
-
     ])
   ],
   providers: [],

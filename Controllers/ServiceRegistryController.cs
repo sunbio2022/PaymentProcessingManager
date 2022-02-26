@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PaymentProcessingManager.DBContexts;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
+using PaymentProcessingManager.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +17,7 @@ namespace PaymentProcessingManager.Controllers
     public class ServiceRegistryController : ControllerBase
     {
         private readonly IServiceRegistryRepository _serviceRegistryRepository;
+        private MyDBContext _dbcontext;
 
         public ServiceRegistryController(IServiceRegistryRepository serviceRegistry)
         {
@@ -35,10 +39,10 @@ namespace PaymentProcessingManager.Controllers
         }
 
         [HttpGet]
-        [Route("GetServiceRegistries")]
-        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistries()
+        [Route("GetServiceRegistry")]
+        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistry()
         {
-            return await _serviceRegistryRepository.GetServiceRegistries();
+            return await _serviceRegistryRepository.GetServiceRegistry();
         }
 
         [HttpGet]
@@ -55,6 +59,8 @@ namespace PaymentProcessingManager.Controllers
             }
         }
 
+
+
         [HttpPost]
         [Route("AddServiceRegistry")]
         public async Task<IActionResult> AddServiceRegistry([FromBody] ServiceRegistry ServiceRegistry)
@@ -66,12 +72,22 @@ namespace PaymentProcessingManager.Controllers
             try
             {
                 var newService = await _serviceRegistryRepository.SaveServiceRegistry(ServiceRegistry);
-                return CreatedAtAction(nameof(GetServiceRegistries), new { id = newService.ServiceRegistryID }, newService);
+                return CreatedAtAction(nameof(GetServiceRegistry), new { id = newService.ServiceRegistryID }, newService);
+                return CreatedAtAction(nameof(GetServiceRegistry), new { id = newService.ServiceRegistryID }, newService);
             }
             catch (Exception ex)
             {
                 throw (ex);
             }
+            //if(!!ModelState.IsValid)
+            //{
+            //    var newService = await _serviceRegistryRepository.SaveService(SR);
+            //    return CreatedAtAction(nameof(SaveService), new { id = newService.ServiceRegistryID },newService);
+            //}
+            //else
+            //{
+            //    return NoContent();
+            //}
         }
     }
 }
