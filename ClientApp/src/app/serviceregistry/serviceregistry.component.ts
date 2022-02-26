@@ -16,12 +16,7 @@ export class ServiceregistryComponent implements OnInit {
   submitted = false;
   route: any;
 
-  constructor(
-    private http: HttpClient,
-    @Inject('BASE_URL') baseUrl: string,
-    private router: Router,
-    private formBuilder: FormBuilder
-     ) {
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Department[]>('/api/ServiceRegistry/GetDepartments').subscribe((data: any[]) => {
       console.log(data);
       this.departments = data;
@@ -30,6 +25,12 @@ export class ServiceregistryComponent implements OnInit {
       console.log(result);
       this.paymentgateway = result;
     }, error => console.error(error));
+    this.form = this.fb.group({
+      paymentgateaway: [''],
+      department: [''],
+      merchantID: [''],
+      folderpath: ['']
+    })
   }
 
   ngOnInit() {
@@ -42,51 +43,12 @@ export class ServiceregistryComponent implements OnInit {
       //validator: MustMatch('password', 'confirmPassword')
     });
   }
-  get f() { return this.registerForm.controls; }
-  //onSubmit(serviceregistryform) {
-    //const data = JSON.stringify(serviceregistryform.value);
-    //console.log(data)
-    //this.http.post('/api/ServiceRegistry', data).subscribe(res => {
-    //  console.log(res);
-    //})
-    //console.warn(data);
-  //}
-  onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-    var formData = JSON.stringify(this.registerForm.value, null, 4);
-    //console.log(formData);
-    formData = JSON.parse(formData);
-    //console.log(formData);
-    var serviceRegistry: any = new FormData();
-    serviceRegistry.append("PaymentGatewayID", formData['paymentGateway']);
-    serviceRegistry.append("DepartmentID", formData['department']);
-    serviceRegistry.append("MerchantID", formData['merchantId']);
-    serviceRegistry.append("FolderPath", formData['folderPath']);
-    console.log(serviceRegistry);
-    var ty = {"PaymentGatewayID":"2",
-      "DepartmentID": "3",
-        "MerchantID": "789564789564785",
-          "FolderPath": "E:/Property"
-    }
-   
-    const headers = {
-      'Accept': '*/*', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, HEAD', 'Content-Type': 'application/json',
-      'Access-Control-Allow-Headers': 'X-Requested-With,content-type'
-    }
-
-    this.http.post<any>('/api/ServiceRegistry/AddServiceRegistry', formData, { headers: headers }).subscribe(data => {
-      //alert(data);
-      //this.registerForm.reset();
-      this.router.navigateByUrl("/service-registry-view");
+  onSubmit(serviceregistryform) {
+    const data = JSON.stringify(serviceregistryform.value);
+    this.http.post('/api/ServiceRegistry', data).subscribe(res => {
+      console.log(res);
     })
-  }
-  onReset() {
-    this.submitted = false;
-    this.registerForm.reset();
+    console.warn(data);
   }
 }
 
@@ -99,3 +61,5 @@ interface PaymentGateway {
   paymentGatewayID: number;
   paymentGatewayName: string;
 }
+
+

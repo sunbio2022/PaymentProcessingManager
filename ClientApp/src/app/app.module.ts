@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -22,6 +22,9 @@ import { FooterComponent } from './footer/footer.component';
 //import { BursInterfaceComponent } from './burs-interface/burs-interface.component';
 import { ReconsilationComponent } from './reconsilation/reconsilation.component';
 import { ServiceregistryComponent } from './serviceregistry/serviceregistry.component';
+import { AccountReportComponent } from './account-report/account-report.component';
+import { CustomerReportComponent } from './customer-report/customer-report.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -43,8 +46,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuthorizationComponent,
     FooterComponent,
     ReconsilationComponent,
-    ServiceregistryComponent,
-    ServiceRegistryViewComponent
+    ServiceregistryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -67,7 +69,6 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: 'reconsilation', component: ReconsilationComponent },
       { path: 'footer', component: FooterComponent },
       { path: 'serviceregistry', component: ServiceregistryComponent },
-      { path: 'service-registry-view', component: ServiceRegistryViewComponent },
     ])
   ],
   providers: [],

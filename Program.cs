@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PaymentProcessingManager.DBLayer;
+using PaymentProcessingManager.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +24,9 @@ namespace PaymentProcessingManager
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
+
     }
+
 }

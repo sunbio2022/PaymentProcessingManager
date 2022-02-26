@@ -2,6 +2,7 @@
 using PaymentProcessingManager.DBContexts;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
+using PaymentProcessingManager.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,20 @@ namespace PaymentProcessingManager.DBLayer
             await _dbcontext.SaveChangesAsync();
             return serviceRegistry;
         }
+
+        //public async Task<ServiceRegistry> SaveService(ServiceRegistryModel SR)
+        //{
+        //    var newService = new ServiceRegistry()
+        //    {
+        //        DepartmentID = SR.DepartmentID,
+        //        PaymentGatewayID = SR.PaymentGatewayID,
+        //        MerchantID = SR.MerchantID,
+        //        FolderPath = SR.FolderPath
+        //    };
+        //    await _dbcontext.ServiceRegistry.AddAsync(newService);
+        //    await _dbcontext.SaveChangesAsync();
+        //    return newService;
+        //}
 
     }
 }

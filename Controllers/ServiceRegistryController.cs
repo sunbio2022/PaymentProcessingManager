@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PaymentProcessingManager.DBContexts;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
+using PaymentProcessingManager.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +17,7 @@ namespace PaymentProcessingManager.Controllers
     public class ServiceRegistryController : ControllerBase
     {
         private readonly IServiceRegistryRepository _serviceRegistryRepository;
+        private MyDBContext _dbcontext;
 
         public ServiceRegistryController(IServiceRegistryRepository serviceRegistry)
         {
@@ -55,6 +59,8 @@ namespace PaymentProcessingManager.Controllers
             }
         }
 
+
+
         [HttpPost]
         [Route("AddServiceRegistry")]
         public async Task<IActionResult> AddServiceRegistry([FromBody] ServiceRegistry ServiceRegistry)
@@ -74,6 +80,15 @@ namespace PaymentProcessingManager.Controllers
                 throw (ex);
                 //return StatusCode(StatusCodes.Status500InternalServerError,"Error creating new employee record");
             }
+            //if(!!ModelState.IsValid)
+            //{
+            //    var newService = await _serviceRegistryRepository.SaveService(SR);
+            //    return CreatedAtAction(nameof(SaveService), new { id = newService.ServiceRegistryID },newService);
+            //}
+            //else
+            //{
+            //    return NoContent();
+            //}
         }
     }
 }

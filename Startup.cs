@@ -36,6 +36,7 @@ namespace PaymentProcessingManager
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAcquisitionRepository, AcquisitionRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IAuthorizationRepository, AuthorizationRepository>();
             services.AddScoped<IRoutingRepository, RoutingRepository>();
             services.AddScoped<IServiceRegistryRepository, ServiceRegistryRepository>();
