@@ -39,10 +39,10 @@ namespace PaymentProcessingManager.Controllers
         }
 
         [HttpGet]
-        [Route("GetServiceRegistries")]
-        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistries()
+        [Route("GetServiceRegistry")]
+        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistry()
         {
-            return await _serviceRegistryRepository.GetServiceRegistries();
+            return await _serviceRegistryRepository.GetServiceRegistry();
         }
 
         [HttpGet]
@@ -62,8 +62,8 @@ namespace PaymentProcessingManager.Controllers
 
 
         [HttpPost]
-        [Route("SaveServiceRegistry")]
-        public async Task<ActionResult<ServiceRegistry>> SaveServiceRegistry(ServiceRegistry serviceRegistry)
+        [Route("AddServiceRegistry")]
+        public async Task<IActionResult> AddServiceRegistry([FromBody] ServiceRegistry ServiceRegistry)
         {
             if (!ModelState.IsValid)
             {
@@ -71,8 +71,9 @@ namespace PaymentProcessingManager.Controllers
             }
             try
             {
-                var newService = await _serviceRegistryRepository.SaveServiceRegistry(serviceRegistry);
-                return CreatedAtAction(nameof(GetServiceRegistries), new { id = newService.ServiceRegistryID }, newService);
+                var newService = await _serviceRegistryRepository.SaveServiceRegistry(ServiceRegistry);
+                return CreatedAtAction(nameof(GetServiceRegistry), new { id = newService.ServiceRegistryID }, newService);
+                return CreatedAtAction(nameof(GetServiceRegistry), new { id = newService.ServiceRegistryID }, newService);
             }
             catch (Exception ex)
             {

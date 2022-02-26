@@ -64,8 +64,8 @@
             <td>{{ authorize.amount }}</td>
             <td>{{ authorize.currency }}</td>
             <td>{{ authorize.transactionDate }}</td>
-            <td>{{ authorize.description }}</td>
-            <td>{{authorize.authorizeStatusID}}</td>
+            <td>{{ authorize.description  !=null ?authorize.description : "-"}}</td>
+            <td>{{ authorize.authorizeStatus !=null? authorize.authorizeStatus.authorizeStatusName : "-"}}</td>
             <td><input type="checkbox" /></td>
             <!--<td>
               <select class="form-control">
