@@ -61,10 +61,18 @@
               </select>
             </td>
             <td>
-              <input type="text" name="burs"  ng-model="cell.value" class="form-control form-control-lg" />
+              <!--<select class="form-control" id="dept">
+                <option value="0">--Select--</option>
+                <option *ngFor="let dept of departments" [selected]="dept.id ==role.departmentID" value={{dept.id}}>{{dept.name}}</option>
+             </select>-->
+              <!--<input type="text" name="burs"  ng-model="cell.value" class="form-control form-control-lg" />-->
             </td>
             <td>
-              <input type="text" name="bursNotes"  ng-model="cell.value" class="form-control form-control-lg" />
+              <!--<select class="form-control" id="dept">
+                <option value="0">--Select--</option>
+                <option *ngFor="let dept of departments" [selected]="dept.id ==role.departmentID" value={{dept.id}}>{{dept.name}}</option>
+              </select>-->
+              <!--<input type="text" name="bursNotes"  ng-model="cell.value" class="form-control form-control-lg" />-->
             </td>
             <td>
               <button type="button" class="btn btn-sm btn-outline-primary" (click)="onSelect(role)">Save</button>

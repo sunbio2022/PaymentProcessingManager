@@ -1,0 +1,8 @@
+TransactionID,PaymentMethod,Amount,Currency,TransactionDate,Description
+123,Debit Card,458,BWP,24-02-2022,Water bill
+124,Credit Card,234,BWP,24-02-2022,House bill
+125,Internet banking,765,BWP,24-02-2022,Electricity bill
+126,Mobile Banking,234,BWP,24-02-2022,Water bill
+456,Debit Card,785,BWP,29-10-1988,asd
+234,Mobile Banking,545,BWP,24-02-2022,House bill
+345,Debit Card,234,BWP,24-02-2022,Ae

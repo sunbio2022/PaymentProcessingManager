@@ -17,7 +17,8 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <div class="section">
-      <form #serviceregistryform="ngForm" (ngSubmit)="onSubmit(serviceregistryform.value)">
+      <!--#serviceregistryform="ngForm" (ngSubmit)="onSubmit(serviceregistryform.value)"-->
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
@@ -26,13 +27,16 @@
                   <label>Payment Gateway</label>
                 </div>
                 <div class="col-8">
-                  <select class="form-control">
-                    <option value="0">--Select--</option>
+                  <select class="form-control" formControlName="PaymentGatewayID" [ngClass]="{ 'is-invalid': submitted && f.PaymentGatewayID.errors }">
+                    <option value="0" selected>--Select--</option>
                     <option *ngFor="let payment of paymentgateway"
                             value={{payment.paymentGatewayID}}>
                       {{payment.paymentGatewayName}}
                     </option>
                   </select>
+                  <div *ngIf="submitted && f.PaymentGatewayID.errors" class="invalid-feedback">
+                    <div *ngIf="f.PaymentGatewayID.errors.required">PaymentGateway is required</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -42,13 +46,16 @@
                   <label>Department Name</label>
                 </div>
                 <div class="col-8">
-                  <select class="form-control">
-                    <option value="0">--Select--</option>
+                  <select class="form-control" formControlName="DepartmentID" [ngClass]="{ 'is-invalid': submitted && f.DepartmentID.errors }">
+                    <option value="0" selected>--Select--</option>
                     <option *ngFor="let dept of departments"
                             value={{dept.id}}>
                       {{dept.name}}
                     </option>
                   </select>
+                  <div *ngIf="submitted && f.DepartmentID.errors" class="invalid-feedback">
+                    <div *ngIf="f.DepartmentID.errors.required">Department is required</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -58,7 +65,10 @@
                   <label>Merchant ID</label>
                 </div>
                 <div class="col-8">
-                  <input type="text" name="merchant Id" class="form-control" ngModel />
+                  <input type="text" formControlName="MerchantID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.MerchantID.errors }" />
+                  <div *ngIf="submitted && f.MerchantID.errors" class="invalid-feedback">
+                    <div *ngIf="f.MerchantID.errors.required">MerchantId is required</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -68,15 +78,17 @@
                   <label>Folder Path</label>
                 </div>
                 <div class="col-8">
-                  <input type="text" name="folderPath" class="form-control" ngModel />
-                  <!--<input type="file" name="folder path" class="form-control" (change)="handleFileInput($event.target.files)" ngModel />-->
+                  <input type="text" formControlName="FolderPath" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.FolderPath.errors }"  />
+                  <div *ngIf="submitted && f.FolderPath.errors" class="invalid-feedback">
+                    <div *ngIf="f.FolderPath.errors.required">FolderPath is required</div>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="form-group text-right">
               <button type="submit" class="btn btn-outline-primary">Save</button>
-              <button type="submit" class="btn btn-outline-secondary ml-3">Cancel</button>
+              <button class="btn btn-outline-secondary ml-3" type="reset" (click)="onReset()">Cancel</button>
             </div>
           </div>
         </div>

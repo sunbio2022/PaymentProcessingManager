@@ -62,6 +62,13 @@ namespace PaymentProcessingManager
             {
                 app.UseSpaStaticFiles();
             }
+            //app.UseCors(builder =>
+            //{
+            //    builder.WithOrigins("https://localhost:44396")
+            //           .AllowCredentials()
+            //           .AllowAnyMethod()
+            //           .AllowAnyHeader();
+            //});
 
             app.UseRouting();
 

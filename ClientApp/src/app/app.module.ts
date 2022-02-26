@@ -23,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ReconsilationComponent } from './reconsilation/reconsilation.component';
 import { ServiceregistryComponent } from './serviceregistry/serviceregistry.component';
 import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ServiceRegistryViewComponent } from './service-registry-view/service-re
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
