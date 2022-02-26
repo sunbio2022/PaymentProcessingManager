@@ -1,5 +1,6 @@
 ﻿using PaymentProcessingManager.DBLayer;
 using PaymentProcessingManager.Model;
+using PaymentProcessingManager.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace PaymentProcessingManager.Repository
         public Task<IEnumerable<ServiceRegistry>> GetServiceRegistries();
 
         public Task<ServiceRegistry> SaveServiceRegistry(ServiceRegistry serviceRegistry);
+        //public Task<ServiceRegistry> SaveService(ServiceRegistryModel SR);
     }
 }
