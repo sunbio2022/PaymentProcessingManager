@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PaymentProcessingManager.DBContexts;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
+using PaymentProcessingManager.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace PaymentProcessingManager.Controllers
 
         [HttpGet]
         [Route("getUsersList")]
-        public async Task<IEnumerable<User>> getUsersList()
+        public async Task<IEnumerable<UserList>> getUsersList()
         {
             try { 
             return await userrep.getUsersList();

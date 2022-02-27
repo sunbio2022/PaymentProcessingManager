@@ -54,9 +54,9 @@ namespace PaymentProcessingManager.DBLayer
             }
         }
 
-        Task<IEnumerable<User>> IUserRepository.getUsersList()
-        {
-            throw new NotImplementedException();
-        }
+        //Task<IEnumerable<User>> IUserRepository.getUsersList()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
