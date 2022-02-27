@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Inject } from '@angular/core';
+  import { HttpClient, HttpHeaders } from '@angular/common/http';
+  import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-serviceregistry',
@@ -11,11 +12,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ServiceregistryComponent implements OnInit {
   public departments: Department[];
   public paymentgateway: PaymentGateway[];
-  selectedObject;
-  form: FormGroup;
+  registerForm: FormGroup;
+  submitted = false;
+  route: any;
 
-  constructor(public fb: FormBuilder,
-    private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Department[]>('/api/ServiceRegistry/GetDepartments').subscribe((data: any[]) => {
       console.log(data);
       this.departments = data;
@@ -33,26 +34,21 @@ export class ServiceregistryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      PaymentGatewayID: ['', [Validators.required, Validators.min(1)]],
+      DepartmentID: ['', [Validators.required, Validators.min(1)]],
+      MerchantID: ['', Validators.required],
+      FolderPath: ['', Validators.required]
+    }, {
+      //validator: MustMatch('password', 'confirmPassword')
+    });
   }
-  handleChange(index) {
-    console.log(this.paymentgateway[index]);
-    this.selectedObject = this.paymentgateway[index];
-  }
-  deptChange(index) {
-    console.log(this.departments[index]);
-    this.selectedObject = this.departments[index];
-  }
-
-  submitForm() {
-    var formData: any = new FormData();
-    formData.append("paymentgateaway", this.form.get('paymentgateaway').value);
-    formData.append("department", this.form.get('department').value);
-    formData.append("merchantID", this.form.get('merchantID').value);
-    //formData.append("folderpath", this.form.get('folderpath').value);
-    this.http.post('/api/ServiceRegistry/SaveServiceRegistry', formData).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    )
+  onSubmit(serviceregistryform) {
+    const data = JSON.stringify(serviceregistryform.value);
+    this.http.post('/api/ServiceRegistry', data).subscribe(res => {
+      console.log(res);
+    })
+    console.warn(data);
   }
 }
 

@@ -36,6 +36,7 @@ namespace PaymentProcessingManager
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAcquisitionRepository, AcquisitionRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IAuthorizationRepository, AuthorizationRepository>();
             services.AddScoped<IRoutingRepository, RoutingRepository>();
             services.AddScoped<IServiceRegistryRepository, ServiceRegistryRepository>();
@@ -62,6 +63,13 @@ namespace PaymentProcessingManager
             {
                 app.UseSpaStaticFiles();
             }
+            //app.UseCors(builder =>
+            //{
+            //    builder.WithOrigins("https://localhost:44396")
+            //           .AllowCredentials()
+            //           .AllowAnyMethod()
+            //           .AllowAnyHeader();
+            //});
 
             app.UseRouting();
 

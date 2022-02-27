@@ -73,11 +73,12 @@ namespace PaymentProcessingManager.Controllers
             {
                 var newService = await _serviceRegistryRepository.SaveServiceRegistry(ServiceRegistry);
                 return CreatedAtAction(nameof(GetServiceRegistry), new { id = newService.ServiceRegistryID }, newService);
-                return CreatedAtAction(nameof(GetServiceRegistry), new { id = newService.ServiceRegistryID }, newService);
+                //return CreatedAtAction(nameof(GetServiceRegistry), new { id = newService.ServiceRegistryID }, newService);
             }
             catch (Exception ex)
             {
                 throw (ex);
+                //return StatusCode(StatusCodes.Status500InternalServerError,"Error creating new employee record");
             }
             //if(!!ModelState.IsValid)
             //{

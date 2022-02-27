@@ -27,7 +27,7 @@ namespace PaymentProcessingManager.DBLayer
         }
         public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistry()
         {
-            return await _dbcontext.ServiceRegistry.Include(p=>p.PaymentGateway).Include(d=>d.Department).AsQueryable().ToListAsync();
+            return await _dbcontext.ServiceRegistry.Include(p=>p.PaymentGateway).Include(d=>d.Department).OrderByDescending(s=>s.ServiceRegistryID).AsQueryable().ToListAsync();
              
         }
 

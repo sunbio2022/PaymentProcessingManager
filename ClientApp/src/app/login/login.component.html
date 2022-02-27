@@ -5,16 +5,60 @@
         <div class="card">
           <div class="card-body p-5 text-center">
             <h3>Login</h3>
-            <p>Please login to your Account!</p><br />
-            <div class="form-outline mb-4">
-              <input type="email" id="emailid" class="form-control form-control-lg" placeholder="Username" />
-            </div>
-            <div class="form-outline mb-4">
-              <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" />
-            </div>
-            <div class="form-outline mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">submit</button>
-            </div>
+            <p>Please login to your Account!</p>
+            <form class="container" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <!--<label>First Name</label>-->
+                <input type="text" formControlName="userName" placeholder="Username" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                  <div *ngIf="f.userName.errors.required">Username is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!--<label>Password</label>-->
+                <input type="password" formControlName="password" placeholder="Password" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+              <!--<div class="form-outline mb-4 text-left">
+                <label>User Type</label><br />
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" formControlName="usertype" [ngClass]="{ 'is-invalid': submitted && f.usertype.errors }"
+                         type="radio"
+                         name="usertype"
+                         value="Member" />
+                  <label class="form-check-label" for="femaleGender">Member</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" formControlName="usertype" [ngClass]="{ 'is-invalid': submitted && f.usertype.errors }"
+                         type="radio"
+                         name="usertype"
+                         value="Head" />
+                  <label class="form-check-label" for="maleGender">Head</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" formControlName="usertype" [ngClass]="{ 'is-invalid': submitted && f.usertype.errors }"
+                         type="radio"
+                         name="usertype"
+                         value="Ministry" />
+                  <label class="form-check-label" for="otherGender">Ministry</label>
+                </div>
+                <div *ngIf="submitted && f.usertype.errors" class="invalid-feedback">
+                  <div *ngIf="f.usertype.errors.required">Please select user type</div>
+                </div>
+              </div>-->
+              <div class="form-group form-check text-left">
+                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                <label for="acceptTerms" class="form-check-label"> &nbsp;Accept Terms & Conditions</label>
+                <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Terms & Conditions is required</div>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary mr-1">Login</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

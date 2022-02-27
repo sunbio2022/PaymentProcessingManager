@@ -22,7 +22,11 @@ import { FooterComponent } from './footer/footer.component';
 //import { BursInterfaceComponent } from './burs-interface/burs-interface.component';
 import { ReconsilationComponent } from './reconsilation/reconsilation.component';
 import { ServiceregistryComponent } from './serviceregistry/serviceregistry.component';
+import { AccountReportComponent } from './account-report/account-report.component';
+import { CustomerReportComponent } from './customer-report/customer-report.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,8 +46,7 @@ import { ServiceRegistryViewComponent } from './service-registry-view/service-re
     AuthorizationComponent,
     FooterComponent,
     ReconsilationComponent,
-    ServiceregistryComponent,
-    ServiceRegistryViewComponent
+    ServiceregistryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -66,7 +69,6 @@ import { ServiceRegistryViewComponent } from './service-registry-view/service-re
       { path: 'reconsilation', component: ReconsilationComponent },
       { path: 'footer', component: FooterComponent },
       { path: 'serviceregistry', component: ServiceregistryComponent },
-      { path: 'service-registry-view', component: ServiceRegistryViewComponent },
     ])
   ],
   providers: [],
