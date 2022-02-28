@@ -40,5 +40,10 @@ namespace PaymentProcessingManager.DBLayer
                 throw (ex);
             }
         }
+
+        public async Task<IEnumerable<Acquisition>> GetPostPayment()
+        {
+            return await dbcontext.Acquisition.Where(a => a.PostPayment != 1).OrderByDescending(a => a.AcquisitionID).AsQueryable().ToListAsync();
+        }
     }
 }

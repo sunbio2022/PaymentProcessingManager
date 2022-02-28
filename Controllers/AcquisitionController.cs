@@ -26,5 +26,33 @@ namespace PaymentProcessingManager.Controllers
         {
             return await _acquisitionRepository.GetAcquisition();
         }
+
+        [HttpPut("id/{userId}")]
+        [Route("UpdateAcquisition")]
+        public async Task<int> UpdateAcquisition(int id)
+        {
+            return await _acquisitionRepository.UpdateAcquisition(id);
+        }
+
+        [HttpPut("customer/{customers}/account/{accounts}/acquisitionIDs{acquisitionIDs}")]
+        [Route("UpdateCustomerandAccount")] 
+        public async Task<int> UpdateCustomerandAccount(string customer, string account, string acquisitionID)
+        {
+            return await _acquisitionRepository.UpdateCustomerandAccount(customer, account, acquisitionID);
+        }
+
+        [HttpPut("acquisitionID/{acquisition}")]
+        [Route("UpdateReconsilation")]
+        public async Task<int> UpdateReconsilation(int acquisitionID)
+        {
+            return await _acquisitionRepository.UpdateReconsilation(acquisitionID);
+        }
+
+        [HttpPut("acquisitionID/{acquisition}")]
+        [Route("UpdatePostPayment")]
+        public async Task<int> UpdatePostPayment(int acquisitionID)
+        {
+            return await _acquisitionRepository.UpdatePostPayment(acquisitionID);
+        }
     }
 }

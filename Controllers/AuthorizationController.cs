@@ -37,6 +37,21 @@ namespace PaymentProcessingManager.Controllers
         }
 
         [HttpGet]
+        //[Authorize(Roles = "Department Head,Department Clerk")]
+        [Route("GetPostPayment")]
+        public async Task<IEnumerable<Acquisition>> GetPostPayment()
+        {
+            try
+            {
+                return await authorrep.GetPostPayment();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [HttpGet]
         [Route("GetAuthorizeStatus")]
         public async Task<IEnumerable<AuthorizeStatus>> GetAuthorizeStatus()
         {

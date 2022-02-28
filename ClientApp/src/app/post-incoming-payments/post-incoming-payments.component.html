@@ -53,7 +53,7 @@
             <th>Transaction Date</th>
             <th>Description</th>
             <th>Authorized By</th>
-            <th>Select</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -65,8 +65,8 @@
             <td>{{ authorize.currency }}</td>
             <td>{{ authorize.transactionDate }}</td>
             <td>{{ authorize.description  !=null ?authorize.description : "-"}}</td>
-            <td>{{ authorize.authorizeStatus !=null? authorize.authorizeStatus.authorizeStatusName : "-"}}</td>
-            <td><input type="checkbox" /></td>
+            <td>{{ authorize.authorizeStatus !=null? authorize.authorizeStatus.authorizeStatus : "-"}}</td>
+            <td> <button type="button" class="btn btn-sm btn-outline-primary" (click)="onSelect(authorize)">Post</button></td>
             <!--<td>
               <select class="form-control">
                 <option value="0">--Select--</option>
@@ -81,11 +81,11 @@
       </table>
     </div>
   </div>
-  <div class="col-md-12 text-right">
-    <button type="button" class="btn btn-outline-primary" (click)="onSubmit()">Post</button>
+  <!--<div class="col-md-12 text-right">
+    <button type="button" class="btn btn-outline-primary" (click)="onSubmit()">Post</button>-->
     <!--<button type="button" class="btn btn-outline-primary" (click)="showModal=true" data-toggle="modal" data-target="#myModal">Post</button>-->
-    <button type="button" class="btn btn-outline-secondary ml-3">Cancel</button>
-  </div>
+    <!--<button type="button" class="btn btn-outline-secondary ml-3">Cancel</button>
+  </div>-->
 </div>
 
 <!--Modal-->

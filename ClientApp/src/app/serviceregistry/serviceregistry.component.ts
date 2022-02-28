@@ -16,7 +16,7 @@ export class ServiceregistryComponent implements OnInit {
   submitted = false;
   route: any;
     form: FormGroup;
-    formBuilder: any;
+    //formBuilder: any;
 
   constructor(private router:Router,private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private formBuilder: FormBuilder) {
     http.get<Department[]>('/api/ServiceRegistry/GetDepartments').subscribe((data: any[]) => {
