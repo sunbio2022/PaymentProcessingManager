@@ -10,6 +10,8 @@ namespace PaymentProcessingManager.Repository
     {
 
         public Task<IEnumerable<Customer>> getCustomer();
-  
+        public Task<IEnumerable<Customer>> GetCustomer();
+        public Task<IEnumerable<Acquisition>> getCustomerReport(int customerID);
+
     }
 }

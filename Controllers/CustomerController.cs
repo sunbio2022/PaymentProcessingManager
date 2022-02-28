@@ -30,5 +30,19 @@ namespace PaymentProcessingManager.Controllers
             return await _customerReport.getCustomer();
         }
 
+        [HttpGet]
+        [Route("GetCustomers")]
+        public async Task<IEnumerable<Customer>> GetCustomers()
+        {
+            return await _customerReport.getCustomer();
+        }
+
+        [HttpGet]
+        [Route("getCustomerReport")]
+        public async Task<IEnumerable<Acquisition>> getCustomerReport(int CustomerID)
+        {
+            return await _customerReport.getCustomerReport(CustomerID);
+        }
+
     }
 }

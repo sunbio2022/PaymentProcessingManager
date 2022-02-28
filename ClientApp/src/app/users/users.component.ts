@@ -25,6 +25,6 @@ interface User {
   userName: string;
   email: string;
   password:string;
-  roleID: string;
-  departmentID: string;
+  roleName: string;
+  departmentName: string;
 }
