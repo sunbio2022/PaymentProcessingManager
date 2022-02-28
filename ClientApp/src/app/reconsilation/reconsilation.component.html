@@ -34,14 +34,14 @@
             <th>Currency</th>
             <th>Transaction Date</th>
             <th>Description</th>
-            <th>Department</th>
-            <th>Burs</th>
-            <th>BURSNotes</th>
+            <!--<th>Department</th>-->
+            <th>Customer</th>
+            <th>Account</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let role of roles; let i = index">
+          <tr *ngFor="let role of acquisition; let i = index">
             <td>{{ i+1 }}</td>
             <!--<td>{{ role.acquisitionID }}</td>-->
             <td>{{ role.transactionID }}</td>
@@ -50,28 +50,24 @@
             <td>{{ role.currency }}</td>
             <td>{{ role.transactionDate }}</td>
             <td>{{ role.description }}</td>
-            <td>
+            <!--<td>
               <select class="form-control" id="dept">
                 <option value="0">--Select--</option>
-                <option *ngFor="let dept of departments" [selected]="dept.id ==role.departmentID" value={{dept.id}}>{{dept.name}}</option>
-                <!--<option *ngFor="let dept of departments" value="0">-Select-{{role.departmentID}}{{dept.id}}</option>
-                          <option value="2" [selected]="role.departmentID ==2">Department of Water Affairs</option>
-                <option value="1" [selected]="role.departmentID ==1">Ministry of Lands and Housing</option>
-                <option value="3" [selected]="role.departmentID ==3">Electricity Board</option>-->
+                <option *ngFor="let dept of departments" [selected]="dept.id ==role.departmentID" value={{dept.id}}>{{dept.name}}</option>                
               </select>
-            </td>
+            </td>-->
             <td>
-              <!--<select class="form-control" id="dept">
+              <select class="form-control" #custom (change)="ddl($event)">
                 <option value="0">--Select--</option>
-                <option *ngFor="let dept of departments" [selected]="dept.id ==role.departmentID" value={{dept.id}}>{{dept.name}}</option>
-             </select>-->
+                <option *ngFor="let cus of customer" [selected]="cus.customerID ==role.customerID" value={{cus.customerID}}>{{cus.customerName}}</option>
+             </select>
               <!--<input type="text" name="burs"  ng-model="cell.value" class="form-control form-control-lg" />-->
             </td>
             <td>
-              <!--<select class="form-control" id="dept">
+              <select class="form-control">
                 <option value="0">--Select--</option>
-                <option *ngFor="let dept of departments" [selected]="dept.id ==role.departmentID" value={{dept.id}}>{{dept.name}}</option>
-              </select>-->
+                <option *ngFor="let reg of serviceRegistry" id="" [selected]="reg.serviceRegistryID ==role.serviceRegistryID" value={{reg.serviceRegistryID}}>{{reg.merchantID}}</option>
+              </select>
               <!--<input type="text" name="bursNotes"  ng-model="cell.value" class="form-control form-control-lg" />-->
             </td>
             <td>

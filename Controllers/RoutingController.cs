@@ -22,10 +22,24 @@ namespace PaymentProcessingManager.Controllers
         }
 
         [HttpGet]
+        [Route("GetCustomer")]
+        public async Task<IEnumerable<Customer>> GetCustomer()
+        {
+            return await _routingRepository.GetCustomer();
+        }
+
+        [HttpGet]
         [Route("GetRouting")]
         public async Task<IEnumerable<Acquisition>> GetRouting()
         {
             return await _routingRepository.GetRouting();
+        }
+
+        [HttpGet]
+        [Route("GetReconsilation")]
+        public async Task<IEnumerable<Acquisition>> GetReconsilation()
+        {
+            return await _routingRepository.GetReconsilation();
         }
 
         [HttpGet]

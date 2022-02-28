@@ -16,7 +16,7 @@ export class ServiceregistryComponent implements OnInit {
   submitted = false;
   route: any;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private router:Router,private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private formBuilder: FormBuilder) {
     http.get<Department[]>('/api/ServiceRegistry/GetDepartments').subscribe((data: any[]) => {
       console.log(data);
       this.departments = data;
@@ -25,12 +25,7 @@ export class ServiceregistryComponent implements OnInit {
       console.log(result);
       this.paymentgateway = result;
     }, error => console.error(error));
-    this.form = this.fb.group({
-      paymentgateaway: [''],
-      department: [''],
-      merchantID: [''],
-      folderpath: ['']
-    })
+    
   }
 
   ngOnInit() {
@@ -43,12 +38,30 @@ export class ServiceregistryComponent implements OnInit {
       //validator: MustMatch('password', 'confirmPassword')
     });
   }
+
+  get f() { return this.registerForm.controls; }
+
   onSubmit(serviceregistryform) {
-    const data = JSON.stringify(serviceregistryform.value);
-    this.http.post('/api/ServiceRegistry', data).subscribe(res => {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+    const headers = {
+      'Accept': '*/*', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, HEAD', 'Content-Type': 'application/json',
+      'Access-Control-Allow-Headers': 'X-Requested-With,content-type'
+    }
+    const data = JSON.stringify(this.registerForm.value, null, 4);
+    this.http.post<any>('/api/ServiceRegistry/AddServiceRegistry', data, { headers }).subscribe(res => {
       console.log(res);
+      this.router.navigateByUrl("/service-registry-view");
     })
-    console.warn(data);
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
   }
 }
 

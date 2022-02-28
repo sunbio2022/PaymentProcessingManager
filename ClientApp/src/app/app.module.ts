@@ -26,7 +26,7 @@ import { AccountReportComponent } from './account-report/account-report.componen
 import { CustomerReportComponent } from './customer-report/customer-report.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
-import { ReactiveFormsModule } from '@angular/forms';
+//import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuthorizationComponent,
     FooterComponent,
     ReconsilationComponent,
-    ServiceregistryComponent
+    ServiceregistryComponent,
+    ServiceRegistryViewComponent,
+    CustomerReportComponent,
+    AccountReportComponent,
+    CustomerProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -69,6 +73,10 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: 'reconsilation', component: ReconsilationComponent },
       { path: 'footer', component: FooterComponent },
       { path: 'serviceregistry', component: ServiceregistryComponent },
+      { path: 'service-registry-view', component: ServiceRegistryViewComponent },
+      { path: 'account-report', component: AccountReportComponent },
+      { path: 'customer-report', component: CustomerReportComponent },
+      { path: 'customer-profile', component: CustomerProfileComponent }
     ])
   ],
   providers: [],

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaymentProcessingManager.DBContexts;
 
 namespace PaymentProcessingManager.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    partial class MyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220226112417_CustomerTable")]
+    partial class CustomerTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,14 +25,8 @@ namespace PaymentProcessingManager.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("Acquisitions")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)");
-
-                    b.Property<int?>("Authorization")
-                        .HasColumnType("int");
 
                     b.Property<int?>("AuthorizeStatusID")
                         .HasColumnType("int");
@@ -57,15 +53,6 @@ namespace PaymentProcessingManager.Migrations
                         .HasColumnType("text");
 
                     b.Property<int?>("PostData")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PostPayment")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Reconsilation")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Routing")
                         .HasColumnType("int");
 
                     b.Property<int?>("ServiceRegistryID")

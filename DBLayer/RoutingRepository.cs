@@ -30,6 +30,31 @@ namespace PaymentProcessingManager.DBLayer
                 throw ex;
             }
         }
+
+        public async Task<IEnumerable<Customer>> GetCustomer()
+        {
+            try
+            {
+                return await dbcontext.Customer.AsQueryable().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IEnumerable<Acquisition>> GetReconsilation()
+        {
+            try
+            {
+                return await dbcontext.Acquisition.Where(a => a.Reconsilation != 1).OrderByDescending(a => a.AcquisitionID).AsQueryable().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<IEnumerable<Department>> GetDepartment()
         {
             try
@@ -42,11 +67,11 @@ namespace PaymentProcessingManager.DBLayer
             }
         }
         public async Task<IEnumerable<Department>> GetDepartmentByDescription(string description)
-         {
+        {
             try
             {
                 return await dbcontext.Departments.Where(d => d.Name.Contains(description)).AsQueryable().ToListAsync();
-               
+
                 // return await dbcontext.Departments.AsSingleQuery("select * from Departments where name LIKE %description% ").ToList().AsQueryable().ToListAsync();
             }
             catch (Exception ex)
