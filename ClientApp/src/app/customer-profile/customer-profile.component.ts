@@ -9,7 +9,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 export class CustomerProfileComponent implements OnInit {
 
   public customer: Customer[];
-  public customers: Customer[];
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Customer[]>('/api/Customer/GetCustomers').subscribe(result => {
@@ -21,10 +20,6 @@ export class CustomerProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-}
-interface Customer {
-  customerID: number;
-  customerName: string;
 }
 
 interface Customer {
