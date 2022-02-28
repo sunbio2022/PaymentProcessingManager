@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12">
     <h4>
-      Customer Reports
+      Customer Transactions
     </h4>
   </div>
 </div>
@@ -24,13 +24,14 @@
   <div class="col-md-4">
     <select class="form-control">
       <option value="0">--Select--</option>
-      <option *ngFor="let custmr of customer"
-              value={{custmr.customerID}}>
-        {{custmr.customerName}}
+      <option *ngFor="let service of serviceRegistries"
+              value={{service.serviceRegistryID}}>
+        {{service.merchantID}}
       </option>
     </select>
   </div>
 </div>
+
 
 <div class="row">
   <div class="col-md-12">
@@ -38,28 +39,29 @@
       <table class="table table-striped table-bordered" aria-labelledby="tableLabel">
         <thead>
           <tr class="text-center">
-            <th>Customer Name</th>
-            <th>ID Number</th>
-            <th>Payment Method</th>
-            <th>Bill Type</th>
-            <th>Amount</th>
-            <th>Currency</th>
             <th>Transaction Date</th>
+            <th>Customer Name</th>
+            <th>Department</th>
+            <th>Sales Account</th>
+            <th>Bank Account</th>
+            <th>Dr Amount</th>
+            <th>Cr Amount</th>
+
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let service of serviceregistries; let i = index">
-            <td>{{ service.customer_name }}</td>
-            <td>{{ service.id_number }}</td>
-            <td>{{ service.payment_method }}</td>
-            <td>{{ service.bill_type }}</td>
-            <td>{{ service.amount }}</td>
-            <td>{{ service.currency }}</td>
             <td>{{ service.transaction_date }}</td>
+            <td>{{ service.name }}</td>
+            <td>{{ service.department }}</td>
+            <td>{{ service.sales_account }}</td>
+            <td>{{ service.bank_account }}</td>
+            <td>{{ service.dr_amount }}</td>
+            <td>{{ service.cr_amount }}</td>
+            <td><button type="button" class="btn btn-outline-primary">View</button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
