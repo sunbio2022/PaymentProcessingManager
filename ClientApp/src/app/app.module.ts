@@ -26,6 +26,8 @@ import { AccountReportComponent } from './account-report/account-report.componen
 import { CustomerReportComponent } from './customer-report/customer-report.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
+import { DepartmentComponent } from './department/department.component';
+
 //import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -51,7 +53,8 @@ import { ServiceRegistryViewComponent } from './service-registry-view/service-re
     CustomerReportComponent,
     AccountReportComponent,
     CustomerProfileComponent,
-    BursInterfaceComponent
+    BursInterfaceComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -78,7 +81,8 @@ import { ServiceRegistryViewComponent } from './service-registry-view/service-re
       { path: 'account-report', component: AccountReportComponent },
       { path: 'customer-report', component: CustomerReportComponent },
       { path: 'customer-profile', component: CustomerProfileComponent },
-      { path: 'burs-interface', component: BursInterfaceComponent }
+      { path: 'burs-interface', component: BursInterfaceComponent },
+      { path: 'department', component: DepartmentComponent }
     ])
   ],
   providers: [],
