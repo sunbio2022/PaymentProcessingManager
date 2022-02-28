@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PaymentProcessingManager.DBLayer
 {
-    public class AcquisitionRepository:IAcquisitionRepository
+    public class AcquisitionRepository : IAcquisitionRepository
     {
         private MyDBContext _dbcontext;
         public AcquisitionRepository(MyDBContext context)
@@ -21,7 +21,7 @@ namespace PaymentProcessingManager.DBLayer
         {
             try
             {
-                return await _dbcontext.Acquisition.AsQueryable().ToListAsync();
+                return await _dbcontext.Acquisition.Where(a => a.Acquisitions != 1).AsQueryable().ToListAsync();
             }
             catch (Exception ex)
             {

@@ -25,9 +25,14 @@ namespace PaymentProcessingManager.Model
         public string BURS { get; set; }
         public string BURSNotes { get; set; }
         public int? CustomerID { get; set; }
-        public Customer Customer { get; set; }
-        public int ServiceRegistryID { get; set; }
-        public ServiceRegistry ServiceRegistry { get; set; }
-        
+        public virtual Customer Customer { get; set; }
+        public int? ServiceRegistryID { get; set; }
+        public virtual ServiceRegistry ServiceRegistry { get; set; }
+        public int? Acquisitions { get; set; }
+        public int? Reconsilation { get; set; }
+        public int? Routing { get; set; }
+        public int? Authorization { get; set; }
+        public int? PostPayment { get; set; }
+
     }
 }
