@@ -33,7 +33,5 @@ interface Customer_Report {
   bank_account: number;
   dr_amount: number;
   cr_amount: number;
-  
-
 }
 

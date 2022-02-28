@@ -15,8 +15,11 @@ export class ServiceregistryComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   route: any;
+    form: FormGroup;
+    formBuilder: any;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(public fb:FormBuilder,
+    private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Department[]>('/api/ServiceRegistry/GetDepartments').subscribe((data: any[]) => {
       console.log(data);
       this.departments = data;
