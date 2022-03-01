@@ -33,7 +33,7 @@
             <th>Currency</th>
             <th>Transaction Date</th>
             <th>Description</th>
-            <th>Select</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +45,8 @@
             <td>{{ acquisition.currency }}</td>
             <td>{{ acquisition.transactionDate }}</td>
             <td>{{ acquisition.description }}</td>
-            <td><input type="checkbox" /></td>
+            <td><!--<input type="checkbox" />-->
+              <button type="button" class="btn btn-sm btn-outline-primary" (click)="onSelect(acquisition)">Move</button></td>
           </tr>
         </tbody>
       </table>

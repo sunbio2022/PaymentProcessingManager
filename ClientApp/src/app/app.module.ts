@@ -19,13 +19,15 @@ import { AcquisitionComponent } from './acquisition/acquisition.component';
 import { RoutingComponent } from './routing/routing.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { FooterComponent } from './footer/footer.component';
-//import { BursInterfaceComponent } from './burs-interface/burs-interface.component';
+import { BursInterfaceComponent } from './burs-interface/burs-interface.component';
 import { ReconsilationComponent } from './reconsilation/reconsilation.component';
 import { ServiceregistryComponent } from './serviceregistry/serviceregistry.component';
 import { AccountReportComponent } from './account-report/account-report.component';
 import { CustomerReportComponent } from './customer-report/customer-report.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
+import { DepartmentComponent } from './department/department.component';
+
 //import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -50,7 +52,9 @@ import { ServiceRegistryViewComponent } from './service-registry-view/service-re
     ServiceRegistryViewComponent,
     CustomerReportComponent,
     AccountReportComponent,
-    CustomerProfileComponent
+    CustomerProfileComponent,
+    BursInterfaceComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -76,7 +80,9 @@ import { ServiceRegistryViewComponent } from './service-registry-view/service-re
       { path: 'service-registry-view', component: ServiceRegistryViewComponent },
       { path: 'account-report', component: AccountReportComponent },
       { path: 'customer-report', component: CustomerReportComponent },
-      { path: 'customer-profile', component: CustomerProfileComponent }
+      { path: 'customer-profile', component: CustomerProfileComponent },
+      { path: 'burs-interface', component: BursInterfaceComponent },
+      { path: 'department', component: DepartmentComponent }
     ])
   ],
   providers: [],

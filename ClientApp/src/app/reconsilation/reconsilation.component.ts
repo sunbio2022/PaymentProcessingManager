@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reconsilation',
@@ -12,7 +13,7 @@ export class ReconsilationComponent implements OnInit {
   public customer: Customer[];
   public serviceRegistry :ServiceRegistry[]
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Acquisition[]>('/api/Routing/GetReconsilation').subscribe((data: any[]) => {
       //console.log(data);
       this.acquisition = data;
@@ -49,23 +50,32 @@ export class ReconsilationComponent implements OnInit {
   ddl(e) {
     console.log(e.path);
   }
-  onSelect(any) {
-    console.log(any)
+  onMove(selectedItem: any) {
+    console.log(selectedItem.acquisitionID);
+    var acquisition= selectedItem.acquisitionID
+    const params = new HttpParams().set('acquisitionID', acquisition);
+    this.http.put<number>('/api/Acquisition/UpdateReconsilation', null, { params: params }).subscribe(res => {
+      //console.log(res);
+    })
+    this.http.get<Acquisition[]>('/api/Routing/GetReconsilation').subscribe((data: any[]) => {
+      //console.log(data);
+      this.acquisition = data;
+    });
+  }
+
+  onSelect(selectedItem: any) {
+    console.log(selectedItem.acquisitionID);
+    localStorage.setItem('acquisitionID', selectedItem.acquisitionID);
+    var acquisitionID = selectedItem.acquisitionID;
+    this.router.navigateByUrl("/burs-interface");
+
+
+    //console.log(any)
     //console.log(selectedItem);
   //console.log("Selected item Id: ", selectedItem.acquisitionID); // You get the Id of the selected item here
   //alert(selectedItem.burs);
   }
-  //onSelect(selectedItem: any) {
-  //  var dataObj = JSON.stringify(selectedItem)
-  //  console.log(dataObj);
-  //  var obj = JSON.parse(dataObj);
-  //  console.log(obj)
-  //  //alert('row index: ' + args.row.getAttribute('name'));
-  //}
-  //rowSelected(args) {
-  //  alert('row index: ' + args.row.getAttribute('aria-rowindex'));
-  //  alert('column index: ' + args.target.getAttribute('aria-colindex'));
-  //}
+ 
 }
 
 interface Acquisition {

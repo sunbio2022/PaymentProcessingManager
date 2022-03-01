@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Modal } from 'bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-incoming-payments',
@@ -13,9 +14,9 @@ export class PostIncomingPaymentsComponent implements OnInit {
   public authorisestatus: AuthorizeStatus[];
     Modal: any;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private router: Router,private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-  http.get<Acquisition[]> ('/api/Authorization/GetAcquisitions').subscribe((data: any[]) => {
+  http.get<Acquisition[]> ('/api/Authorization/GetPostPayment').subscribe((data: any[]) => {
     console.log(data);
     this.authorizes = data;
   });
@@ -34,6 +35,22 @@ export class PostIncomingPaymentsComponent implements OnInit {
   }
   onClose() {
     this.display = "none";
+  }
+  onSelect(selectedItem: any) {
+    console.log(selectedItem.acquisitionID);
+    var acquisition = selectedItem.acquisitionID
+    const params = new HttpParams().set('acquisitionID', acquisition);
+    this.http.put<number>('/api/Acquisition/UpdatePostPayment', null, { params: params }).subscribe(res => {
+      //console.log(res);
+    })
+    this.router.navigateByUrl("/post-incoming-payments");
+    this.http.get<Acquisition[]>('/api/Authorization/GetPostPayment').subscribe((data: any[]) => {
+      console.log(data);
+      this.authorizes = data;
+    });
+
+
+   
   }
 
   //onSubmit(paymentform) {
