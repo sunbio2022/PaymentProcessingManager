@@ -23,7 +23,7 @@ namespace PaymentProcessingManager.DBLayer
         {
             try
             {
-                return await dbcontext.Acquisition.AsQueryable().ToListAsync();
+                return await dbcontext.Acquisition.Where(a=>a.Routing!=1 && a.Reconsilation ==1).OrderByDescending(a=>a.AcquisitionID).AsQueryable().ToListAsync();
             }
             catch (Exception ex)
             {
@@ -47,7 +47,7 @@ namespace PaymentProcessingManager.DBLayer
         {
             try
             {
-                return await dbcontext.Acquisition.Where(a => a.Reconsilation != 1).OrderByDescending(a => a.AcquisitionID).AsQueryable().ToListAsync();
+                return await dbcontext.Acquisition.Where(a => a.Reconsilation != 1 && a.Acquisitions==1).OrderByDescending(a => a.AcquisitionID).AsQueryable().ToListAsync();
             }
             catch (Exception ex)
             {
@@ -85,6 +85,36 @@ namespace PaymentProcessingManager.DBLayer
             try
             {
                 return await dbcontext.Acquisition.FindAsync(AcquisitionID);
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        public async Task<int> UpdateRouting(int acquisitionID)
+        {
+            try
+            {
+                var acquisition = await dbcontext.Acquisition.Where(a => a.AcquisitionID == acquisitionID).AsQueryable().FirstOrDefaultAsync();
+                acquisition.Routing = 1;
+                dbcontext.SaveChanges();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        public async Task<int> UpdateDep(int department, int acquisitionID)
+        {
+            try
+            {
+                var acquisition = await dbcontext.Acquisition.Where(a => a.AcquisitionID == acquisitionID).AsQueryable().FirstOrDefaultAsync();
+                acquisition.DepartmentID = department;
+                dbcontext.SaveChanges();
+                return 1;
             }
             catch (Exception ex)
             {

@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
-a {
+/*a {
   color: #3E2723;
-}
+}*/
 
   a:hover {
-    color: #3E2723;
+    
     text-decoration: none;
   }
 

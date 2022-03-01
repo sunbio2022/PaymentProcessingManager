@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12">
     <h4>
-      Customer Transactions
+      Rule Based Routing
     </h4>
   </div>
 </div>
@@ -20,48 +20,42 @@
   </div>
 </div>
 
-<div class="row mb-3">
-  <div class="col-md-4">
-    <select class="form-control">
-      <option value="0">--Select--</option>
-      <!--<option *ngFor="let service of serviceRegistries"
-              value={{service.serviceRegistryID}}>
-        {{service.merchantID}}
-      </option>-->
-    </select>
-  </div>
-</div>
-
-
 <div class="row">
   <div class="col-md-12">
     <div class="table table-responsive">
       <table class="table table-striped table-bordered" aria-labelledby="tableLabel">
         <thead>
           <tr class="text-center">
+            <!--<th>Serial Number</th>
+            <th>Transaction ID</th>
+            <th>Payment Method</th>
+            <th>Amount</th>
+            <th>Currency</th>
             <th>Transaction Date</th>
-            <th>Customer Name</th>
+            <th>Description</th>-->
             <th>Department</th>
-            <th>Sales Account</th>
-            <th>Bank Account</th>
-            <th>Dr Amount</th>
-            <th>Cr Amount</th>
-
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <!--<tr *ngFor="let service of serviceregistries; let i = index">
-            <td>{{ service.transaction_date }}</td>
-            <td>{{ service.name }}</td>
-            <td>{{ service.department }}</td>
-            <td>{{ service.sales_account }}</td>
-            <td>{{ service.bank_account }}</td>
-            <td>{{ service.dr_amount }}</td>
-            <td>{{ service.cr_amount }}</td>
-            <td><button type="button" class="btn btn-outline-primary">View</button></td>
-          </tr>-->
+          <tr>
+           <td>
+              <select class="form-control" id="dept"  (change)="onDepartment($event.target.value)">
+                <option value="0">--Select--</option>
+                <option *ngFor="let dept of departments" value={{dept.id}}>{{dept.name}}</option>
+              </select>
+            </td>
+            <td>
+              <button type="button" class=" btn btn-sm btn-outline-secondary m-1"  (click)="onSelect()">Assign</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
+<!--<div class="row">
+  <button type="button" class="btn btn-primary">Save</button>
+  <button type="button" class=" btn btn-primary">Cancel</button>
+</div>-->

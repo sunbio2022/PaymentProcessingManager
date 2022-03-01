@@ -27,6 +27,8 @@ import { CustomerReportComponent } from './customer-report/customer-report.compo
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ServiceRegistryViewComponent } from './service-registry-view/service-registry-view.component';
 import { DepartmentComponent } from './department/department.component';
+import { AssignDepartmentComponent } from './assign-department/assign-department.component';
+import { AssigAuthorizeComponent } from './assig-authorize/assig-authorize.component';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -54,7 +56,9 @@ import { DepartmentComponent } from './department/department.component';
     AccountReportComponent,
     CustomerProfileComponent,
     BursInterfaceComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    AssignDepartmentComponent,
+    AssigAuthorizeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -82,7 +86,9 @@ import { DepartmentComponent } from './department/department.component';
       { path: 'customer-report', component: CustomerReportComponent },
       { path: 'customer-profile', component: CustomerProfileComponent },
       { path: 'burs-interface', component: BursInterfaceComponent },
-      { path: 'department', component: DepartmentComponent }
+      { path: 'department', component: DepartmentComponent },
+      { path: 'assign-department', component: AssignDepartmentComponent },
+      { path: 'assig-authorize', component: AssigAuthorizeComponent }
     ])
   ],
   providers: [],

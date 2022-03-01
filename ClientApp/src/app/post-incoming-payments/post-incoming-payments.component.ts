@@ -48,7 +48,7 @@ export class PostIncomingPaymentsComponent implements OnInit {
       console.log(data);
       this.authorizes = data;
     });
-
+    window.location.reload();
 
    
   }

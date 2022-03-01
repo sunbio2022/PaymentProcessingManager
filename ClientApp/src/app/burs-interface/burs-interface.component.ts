@@ -43,6 +43,7 @@ export class BursInterfaceComponent implements OnInit {
       })
 
       this.router.navigateByUrl("/reconsilation");
+
     }
     else {
       alert('please select Customer and Account');

@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authorization',
@@ -13,8 +14,8 @@ export class AuthorizationComponent implements OnInit {
   public authorizes: Acquisition[];
   public authorisestatus: AuthorizeStatus[]; 
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Acquisition[]>('/api/Authorization/GetAcquisitions').subscribe((data: any[]) => {
+  constructor(private router: Router,private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get<Acquisition[]>('/api/Authorization/GetAuthorizations').subscribe((data: any[]) => {
       console.log(data);
       this.authorizes = data;
     });
@@ -24,6 +25,26 @@ export class AuthorizationComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  OnSubmit(selectedItem: any) {
+    console.log(selectedItem.acquisitionID);
+    var acquisition = selectedItem.acquisitionID
+    const params = new HttpParams().set('acquisitionID', acquisition);
+    this.http.put<number>('/api/Authorization/UpdateAuthorization', null, { params: params }).subscribe(res => {
+      //console.log(res);
+    })
+    this.http.get<Acquisition[]>('/api/Authorization/GetAuthorizations').subscribe((data: any[]) => {
+      //console.log(data);
+      this.authorizes = data;
+    });
+    window.location.reload();
+  }
+
+  onAssign(selectedItem: any) {
+    console.log(selectedItem.acquisitionID);
+    localStorage.setItem('acquisitionID', selectedItem.acquisitionID);
+    this.router.navigateByUrl("/assig-authorize");
   }
 
 }

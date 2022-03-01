@@ -90,6 +90,22 @@ namespace PaymentProcessingManager.Controllers
             //dbcontext.Acquisition.Add(acquisition);
             //await dbcontext.SaveChangesAsync();
         }
+
+        [HttpPut("department/{departments}/acquisitionID/{acquisition}")]
+        [Route("UpdateDep")]
+        public async Task<int> UpdateDep(int department, int acquisitionID)
+        {
+            return await _routingRepository.UpdateDep(department, acquisitionID);
+        }
+
+
+        [HttpPut("acquisitionID/{acquisition}")]
+        [Route("UpdateRouting")]
+        public async Task<int> UpdateRouting(int acquisitionID)
+        {
+            return await _routingRepository.UpdateRouting(acquisitionID);
+        }
+
     }
 }
 

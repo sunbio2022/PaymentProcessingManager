@@ -8,9 +8,12 @@ namespace PaymentProcessingManager.Repository
 {
     public interface IAuthorizationRepository
     {
-        public Task<IEnumerable<Acquisition>> GetAcquisitions();
+        public Task<IEnumerable<Acquisition>> GetAuthorizations();
         public Task<IEnumerable<AuthorizeStatus>> GetAuthorizeStatus();
 
         public Task<IEnumerable<Acquisition>> GetPostPayment();
+        public Task<int> UpdateAuthorization(int acquisitionID);
+
+        public Task<int> UpdateAuthorizationStatus(int authorizationStatus, int acquisitionID);
     }
 }
