@@ -61,6 +61,7 @@ export class ReconsilationComponent implements OnInit {
       //console.log(data);
       this.acquisition = data;
     });
+    window.location.reload();
   }
 
   onSelect(selectedItem: any) {

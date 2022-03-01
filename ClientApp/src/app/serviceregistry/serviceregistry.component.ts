@@ -43,7 +43,7 @@ export class ServiceregistryComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
-  onSubmit(serviceregistryform) {
+  onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid

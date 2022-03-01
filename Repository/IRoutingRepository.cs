@@ -15,5 +15,7 @@ namespace PaymentProcessingManager.Repository
 
         public Task<IEnumerable<Department>> GetDepartmentByDescription(string Description);
         public Task<Acquisition> GetAcquisitionById(int AcquisitionID);
+        public Task<int> UpdateRouting(int acquisitionID);
+        public Task<int> UpdateDep(int department, int acquisitionID);
     }
 }

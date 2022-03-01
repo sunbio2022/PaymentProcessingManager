@@ -37,6 +37,7 @@ export class AcquisitionComponent implements OnInit {
       this.acquisitions = data;
     });
     this.router.navigateByUrl("/acquisition");
+    window.location.reload();
   }
 
 }

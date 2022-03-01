@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-routing',
@@ -13,7 +14,7 @@ export class RoutingComponent implements OnInit {
   public roles: Acquisition[];
   public departments: Department[];
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private router: Router,private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Acquisition[]>('/api/Routing/GetRouting').subscribe((data: any[]) => {
       console.log(data);
       this.roles = data;
@@ -23,14 +24,31 @@ export class RoutingComponent implements OnInit {
       console.log(result);
     }, error => console.error(error));
   }
-  OnSubmit() {
-    //this.http.put('/api/Routing/UpdateRecord').subscribe(result => {
-    //  console.log(result);
-    //});
+  onAssign(selectedItem: any) {
+    console.log(selectedItem.acquisitionID);
+    localStorage.setItem('acquisitionID', selectedItem.acquisitionID);
+    //var acquisitionID = selectedItem.acquisitionID;
+    this.router.navigateByUrl("/assign-department");
   }
-    OnCancel(){
-      console.log();
-    }
+
+
+  OnSubmit(selectedItem: any) {
+    console.log(selectedItem.acquisitionID);
+    var acquisition = selectedItem.acquisitionID
+    const params = new HttpParams().set('acquisitionID', acquisition);
+    this.http.put<number>('/api/Routing/UpdateRouting', null, { params: params }).subscribe(res => {
+      //console.log(res);
+    })
+    this.http.get<Acquisition[]>('/api/Routing/GetRouting').subscribe((data: any[]) => {
+      //console.log(data);
+      this.roles = data;
+    });
+    window.location.reload();
+  }
+
+  OnCancel() {
+    console.log();
+  }
 
   ngOnInit() {
   }

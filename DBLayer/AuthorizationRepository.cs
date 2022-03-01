@@ -17,11 +17,11 @@ namespace PaymentProcessingManager.DBLayer
             dbcontext = context;
         }
 
-        public async Task<IEnumerable<Acquisition>> GetAcquisitions()
+        public async Task<IEnumerable<Acquisition>> GetAuthorizations()
         {
             try
             {
-                return await dbcontext.Acquisition.Include(a=>a.AuthorizeStatus).AsQueryable().ToListAsync();
+                return await dbcontext.Acquisition.Where(a=>a.Routing==1 && a.Authorization !=1).AsQueryable().ToListAsync();
             }
             catch (Exception ex)
             {
@@ -43,7 +43,38 @@ namespace PaymentProcessingManager.DBLayer
 
         public async Task<IEnumerable<Acquisition>> GetPostPayment()
         {
-            return await dbcontext.Acquisition.Where(a => a.PostPayment != 1).OrderByDescending(a => a.AcquisitionID).AsQueryable().ToListAsync();
+            return await dbcontext.Acquisition.Where(a => a.Authorization == 1 && a.PostPayment != 1).OrderByDescending(a => a.AcquisitionID).AsQueryable().ToListAsync();
         }
+
+        public async Task<int> UpdateAuthorization(int acquisitionID)
+        {
+            try
+            {
+                var acquisition = await dbcontext.Acquisition.Where(a => a.AcquisitionID == acquisitionID).AsQueryable().FirstOrDefaultAsync();
+                acquisition.Authorization = 1;
+                dbcontext.SaveChanges();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        public async Task<int> UpdateAuthorizationStatus(int authorizationStatus,  int acquisitionID)
+        {
+            try
+            {
+                var acquisition = await dbcontext.Acquisition.Where(a => a.AcquisitionID == acquisitionID).AsQueryable().FirstOrDefaultAsync();
+                acquisition.AuthorizeStatusID = authorizationStatus;
+                dbcontext.SaveChanges();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
     }
 }

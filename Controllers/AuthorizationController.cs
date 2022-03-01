@@ -23,12 +23,12 @@ namespace PaymentProcessingManager.Controllers
 
         [HttpGet]
         //[Authorize(Roles = "Department Head,Department Clerk")]
-        [Route("GetAcquisitions")]
-        public async Task<IEnumerable<Acquisition>> GetAcquisitions()
+        [Route("GetAuthorizations")]
+        public async Task<IEnumerable<Acquisition>> GetAuthorizations()
         {
             try
             {
-                return await authorrep.GetAcquisitions();
+                return await authorrep.GetAuthorizations();
             }
             catch(Exception ex)
             {
@@ -64,6 +64,22 @@ namespace PaymentProcessingManager.Controllers
                 throw (ex);
             }
         }
+
+        [HttpPut("authorizationStatus/{authorizestatus}/acquisitionID/{acquisition}")]
+        [Route("UpdateAuthorizationStatus")]
+        public async Task<int> UpdateAuthorizationStatus(int authorizationStatus, int acquisitionID)
+        {
+            return await authorrep.UpdateAuthorizationStatus(authorizationStatus, acquisitionID);
+        }
+
+
+        [HttpPut("acquisitionID/{acquisition}")]
+        [Route("UpdateAuthorization")]
+        public async Task<int> UpdateAuthorization(int acquisitionID)
+        {
+            return await authorrep.UpdateAuthorization(acquisitionID);
+        }
+
     }
 
 }

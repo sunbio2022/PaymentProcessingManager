@@ -24,10 +24,10 @@
   <div class="col-md-4">
     <select class="form-control" id=""  [(ngModel)]="selected" (ngModelChange)="onSelected($event.target)">
       <option value="0">--Select--</option>
-      <option *ngFor="let service of serviceRegistries"
+      <!--<option *ngFor="let service of serviceRegistries"
               value={{service.serviceRegistryID}}>
         {{service.merchantID}}
-      </option>
+      </option>-->
     </select>
   </div>
 </div>
@@ -59,7 +59,7 @@
             <td>{{ acquisition.dr_amount }}</td>
             <td>{{ acquisition.cr_amount }}</td>
             <td><button type="button" class="btn btn-outline-primary">View</button></td>
-          </tr>
+          </tr>-->
         </tbody>
       </table>
     </div>
