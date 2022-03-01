@@ -1,9 +1,9 @@
-﻿using PaymentProcessingManager.DBContexts;
+﻿using Microsoft.EntityFrameworkCore;
+using PaymentProcessingManager.DBContexts;
 using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,9 +17,14 @@ namespace PaymentProcessingManager.DBLayer
             dbcontext = context;
         }
 
-        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistry(string merchantId)
+        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistry()
         {
-            return await dbcontext.ServiceRegistry.Include(p => p.PaymentGateway).Include(d => d.Department).Where(s=>s.MerchantID==merchantId).AsQueryable().ToListAsync();
+            return await dbcontext.ServiceRegistry.AsQueryable().ToListAsync();
+
+        }
+        public async Task<IEnumerable<Acquisition>> GetServiceRegistryByMerchantID(int serviceregistryID)
+        {
+            return await dbcontext.Acquisition.Where(a=>a.PostPayment == 1 && a.ServiceRegistryID == serviceregistryID).AsQueryable().ToListAsync();
 
         }
     }

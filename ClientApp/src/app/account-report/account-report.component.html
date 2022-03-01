@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12">
     <h4>
-      Customer Transactions
+      Account Report
     </h4>
   </div>
 </div>
@@ -22,7 +22,7 @@
 
 <div class="row mb-3">
   <div class="col-md-4">
-    <select class="form-control">
+    <select class="form-control" id=""  [(ngModel)]="selected" (ngModelChange)="onSelected($event.target)">
       <option value="0">--Select--</option>
       <option *ngFor="let service of serviceRegistries"
               value={{service.serviceRegistryID}}>
@@ -50,14 +50,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let service of serviceregistries; let i = index">
-            <td>{{ service.transaction_date }}</td>
-            <td>{{ service.name }}</td>
-            <td>{{ service.department }}</td>
-            <td>{{ service.sales_account }}</td>
-            <td>{{ service.bank_account }}</td>
-            <td>{{ service.dr_amount }}</td>
-            <td>{{ service.cr_amount }}</td>
+          <tr *ngFor="let acquisition of Acquisition; let i = index">
+            <td>{{ acquisition.transactionDate }}</td>
+            <td>{{ acquisition.customer }}</td>
+            <td>{{ acquisition.department }}</td>
+            <td>{{ acquisition.sales_account }}</td>
+            <td>{{ acquisition.bank_account }}</td>
+            <td>{{ acquisition.dr_amount }}</td>
+            <td>{{ acquisition.cr_amount }}</td>
             <td><button type="button" class="btn btn-outline-primary">View</button></td>
           </tr>
         </tbody>

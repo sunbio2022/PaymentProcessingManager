@@ -21,9 +21,16 @@ namespace PaymentProcessingManager.Controllers
 
         [HttpGet]
         [Route("GetServiceRegistry")]
-        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistry(string merchantid)
+        public async Task<IEnumerable<ServiceRegistry>> GetServiceRegistry()
         {
-            return await _accountReport.GetServiceRegistry(merchantid);
+            return await _accountReport.GetServiceRegistry();
+        }
+
+        [HttpGet]
+        [Route("GetServiceRegistryByMerchantID")]
+        public async Task<IEnumerable<Acquisition>> GetServiceRegistryByMerchantID(int serviceregistryID)
+        {
+            return await _accountReport.GetServiceRegistryByMerchantID(serviceregistryID);
         }
     }
 }

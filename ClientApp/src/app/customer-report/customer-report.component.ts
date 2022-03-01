@@ -11,35 +11,52 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class CustomerReportComponent implements OnInit {
-  public customers: Customer_Report[];
+  /*public customers: Customer_Report[];*/
   public customer: Customer[];
+  public acquisition: Acquisition[];
+  Selected: any;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Customer_Report[]>('/api/Customer/GetCustomers').subscribe((data: any[]) => {
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    //http.get<Customer_Report[]>('/api/Customer/GetCustomers').subscribe((data: any[]) => {
+    //  console.log(data);
+    //  this.customers = data;
+    //});
+    http.get<Customer[]>('/api/Customer/GetCustomers').subscribe((data: any[]) => {
       console.log(data);
-      this.customers = data;
+      this.customer = data;
     });
-    http.get<Customer[]>('/api/Customer/GetCustomers').subscribe(result => {
-      this.customer = result;
-      console.log(result);
-    }, error => console.error(error));
   }
 
   ngOnInit() {
   }
+  onOptionsSelected() {
+    this.http.get<Acquisition[]>('/api/Customer/getCustomerReport').subscribe(result => {
+      this.acquisition = result;
+      console.log(result);
+    });
+  }
 }
 
 
-interface Customer_Report {
-  transaction_date: string;
-  name: string;
+//interface Customer_Report {
+//  transaction_date: string;
+//  name: string;
+//  department: string;
+//  sales_account: number;
+//  bank_account: number;
+//  dr_amount: number;
+//  cr_amount: number;
+//}
+
+interface Acquisition {
+  transactionDate: string;
+  customer: string;
   department: string;
   sales_account: number;
   bank_account: number;
   dr_amount: number;
   cr_amount: number;
 }
-
 
 interface Customer {
   customerID: number;

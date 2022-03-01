@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12">
     <h4>
-      Customer Transactions
+      Customer Report
     </h4>
   </div>
 </div>
@@ -22,7 +22,7 @@
 
 <div class="row mb-3">
   <div class="col-md-4">
-    <select class="form-control">
+    <select class="form-control" (Change)="onOptionsSelected($event)">
       <option value="0">--Select--</option>
       <option *ngFor="let custmr of customer"
               value={{custmr.customerID}}>
@@ -49,14 +49,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cust of customers; let i = index">
-            <td>{{ cust.transaction_date }}</td>
-            <td>{{ cust.name }}</td>
-            <td>{{ cust.department }}</td>
-            <td>{{ cust.sales_account }}</td>
-            <td>{{ cust.bank_account }}</td>
-            <td>{{ cust.dr_amount }}</td>
-            <td>{{ cust.cr_amount }}</td>
+          <tr *ngFor="let acquisition of Acquisition; let i = index">
+            <td>{{ acquisition.transactionDate }}</td>
+            <td>{{ acquisition.customer }}</td>
+            <td>{{ acquisition.department }}</td>
+            <td>{{ acquisition.sales_account }}</td>
+            <td>{{ acquisition.bank_account }}</td>
+            <td>{{ acquisition.dr_amount }}</td>
+            <td>{{ acquisition.cr_amount }}</td>
             <td><button type="button" class="btn btn-outline-primary">View</button></td>
           </tr>
         </tbody>

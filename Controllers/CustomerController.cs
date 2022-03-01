@@ -31,8 +31,8 @@ namespace PaymentProcessingManager.Controllers
         }
 
         [HttpGet]
-        [Route("GetCustomers")]
-        public async Task<IEnumerable<Customer>> GetCustomers()
+        [Route("GetCustomer")]
+        public async Task<IEnumerable<Customer>> GetCustomer()
         {
             return await _customerReport.getCustomer();
         }

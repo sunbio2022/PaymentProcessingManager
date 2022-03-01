@@ -8,6 +8,8 @@ namespace PaymentProcessingManager.Repository
 {
     public interface IAccountRepository
     {
-        public Task<IEnumerable<ServiceRegistry>> GetServiceRegistry(string merchantid);
+
+        public Task<IEnumerable<ServiceRegistry>> GetServiceRegistry();
+        public Task<IEnumerable<Acquisition>> GetServiceRegistryByMerchantID(int serviceregistryID);
     }
 }

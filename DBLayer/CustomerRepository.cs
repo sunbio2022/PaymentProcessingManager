@@ -4,6 +4,7 @@ using PaymentProcessingManager.Model;
 using PaymentProcessingManager.Repository;
 using System;
 using System.Collections.Generic;
+//using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,7 +48,7 @@ namespace PaymentProcessingManager.DBLayer
         {
             try
             {
-                return await dbcontext.Acquisition.Where(c => c.CustomerID == customerID).AsQueryable().ToListAsync();
+                return await dbcontext.Acquisition.Where(a => a.PostPayment ==1 && a.CustomerID == customerID).AsQueryable().ToListAsync();
             }
             catch (Exception ex)
             {
